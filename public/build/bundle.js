@@ -3,7 +3,12 @@
 var React = require("react");
 
 var App = React.createClass({displayName: 'App',
+  componentDidMount:function(){
+    //componentDidMount only gets called from client side - not on server rendering
+    console.log("Mounted");
+  },
   render:function(){
+    console.log("Render");
     return React.DOM.div(null, "Hi Co-Authors!")
   }
 });
