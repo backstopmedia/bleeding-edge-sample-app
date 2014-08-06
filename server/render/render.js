@@ -1,7 +1,16 @@
 /**
 
-See https://github.com/rackt/react-router/issues/57#issuecomment-51303155
-for possible server side rendering strategy.
+Potential server side rendering strategy
+
+1. ask flux dispatcher to start tracking new store requests
+2. start the render - this is syncronis so any store request that happen during render are of concern
+3. ask flux dispatcher to stop tracking and notify when all tracked request have been resolved
+4. repeat set 1-3 till no more requests are being produced (cap max number of renders)
+5. once no more requests are being produced take the render output and return page
+
+Some modules may have data dependency causing a new module to be rendered.
+These in turn may have more data dependencies.
+Hence the need for step 4.
 
 */
 
