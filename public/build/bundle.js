@@ -7,6 +7,10 @@ var App = React.createClass({displayName: 'App',
     //componentDidMount only gets called from client side - not on server rendering
     console.log("Mounted");
   },
+  componentWillMount:function(){
+    //componentDidMount only gets called from client side - not on server rendering
+    console.log("Going to Mount");
+  },
   render:function(){
     console.log("Render");
     return React.DOM.div(null, "Hi Co-Authors!")
