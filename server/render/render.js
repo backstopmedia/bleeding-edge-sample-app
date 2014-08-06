@@ -1,3 +1,10 @@
+/**
+
+See https://github.com/rackt/react-router/issues/57#issuecomment-51303155
+for possible server side rendering strategy.
+
+*/
+
 require('node-jsx').install({harmony: true});
 
 var fs = require("fs");
