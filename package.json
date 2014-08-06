@@ -2,9 +2,11 @@
   "name": "react-survey-builder",
   "version": "0.0.0",
   "description": "example project for building surveys with react.js",
-  "main": " ",
+  "main": "./src/server/app.js",
   "scripts": {
-    "browserify": "browserify -t reactify src/client/client.js > dist/app-bundle.js"
+    "browserify": "browserify -t reactify ./src/client/client.js > ./dist/app-bundle.js",
+    "build": "git checkout ./dist && cp -R src/client/public/* dist/ && npm run browserify",
+    "start": "node ./src/server/app.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "reactify": "^0.14.0"
   },
   "dependencies": {
+    "express": "^4.7.4",
     "react": "^0.11.1"
   }
 }
