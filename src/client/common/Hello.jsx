@@ -1,16 +1,15 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Hello = require('../common/Hello');
 
-var App = React.createClass({
+var Hello = React.createClass({
   render: function(){
     return (
       <div>
-        <Hello />
+        Hello, world!
       </div>
     );
   }
 });
 
-module.exports = App;
+module.exports = Hello;
 
