@@ -1,0 +1,29 @@
+{
+  "name": "bleeding-edge-sample-app",
+  "version": "0.0.1",
+  "description": "bleeding-edge-sample-app ========================",
+  "main": "server/server.js",
+  "scripts": {
+    "prestart": "browserify -t reactify client/client.js > public/build/bundle.js",
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtfeldman/bleeding-edge-sample-app.git"
+  },
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/rtfeldman/bleeding-edge-sample-app/issues"
+  },
+  "homepage": "https://github.com/rtfeldman/bleeding-edge-sample-app",
+  "dependencies": {
+    "browserify": "^5.9.1",
+    "es5-shim": "^4.0.1",
+    "express": "^4.7.4",
+    "node-jsx": "^0.11.0",
+    "react": "^0.11.1",
+    "reactify": "^0.14.0"
+  }
+}
