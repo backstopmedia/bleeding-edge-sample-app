@@ -11,6 +11,9 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
+//return static assets first
+app.use(express.static("./public"));
+
 //echo api route
 app.use('/api/echo', require('./api/echo'));
 
@@ -26,7 +29,6 @@ router.get('/', function(req, res) {
 });
 
 app.use('/', router);
-app.use(express.static("./public"));
 
 app.listen(port);
 console.log('App started goto - http://0.0.0.0:' + port);
