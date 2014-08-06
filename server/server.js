@@ -11,9 +11,11 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
+//echo api route
+app.use('/api/echo', require('./api/echo'));
 
 //render the app server side
-var clientApp = require("../client/app.js");
+var clientApp = require("../client/app/app");
 router.get('/', function(req, res) {
   //fetch the template
   var template = fs.readFileSync("./client/app.html", {encoding:'utf8'});
