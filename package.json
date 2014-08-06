@@ -1,0 +1,26 @@
+{
+  "name": "react-survey-builder",
+  "version": "0.0.0",
+  "description": "example project for building surveys with react.js",
+  "main": " ",
+  "scripts": {
+    "browserify": "browserify -t reactify src/client/client.js > dist/app-bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtfeldman/bleeding-edge-sample-app.git"
+  },
+  "author": "",
+  "license": "Apache2.0",
+  "bugs": {
+    "url": "https://github.com/rtfeldman/bleeding-edge-sample-app/issues"
+  },
+  "homepage": "https://github.com/rtfeldman/bleeding-edge-sample-app",
+  "devDependencies": {
+    "browserify": "^5.9.1",
+    "reactify": "^0.14.0"
+  },
+  "dependencies": {
+    "react": "^0.11.1"
+  }
+}
