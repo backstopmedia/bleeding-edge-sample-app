@@ -13,7 +13,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-//      'client/**/*.js',
+      'client/**/*.js',
       'test/**/*.js'
 //      'server/**/*.js'
     ],
@@ -27,6 +27,15 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'client/**/*.js': ['browserify'],
+      'test/**/*.js': ['browserify']
+//      'server/**/*.js': ['browserify']
+    },
+
+
+    browserify: {
+      debug: true,
+      transform: [ 'reactify' ]
     },
 
 
@@ -55,7 +64,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+//    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+    browsers: ['Chrome', 'Firefox'],
 
 
     // Continuous Integration mode
