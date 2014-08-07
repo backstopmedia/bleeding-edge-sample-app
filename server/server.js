@@ -6,11 +6,11 @@ var app = express();
 
 var port = process.env.PORT || 8080;
 
-//return static assets first
-app.use(express.static('./public'));
-
 //echo api route
 app.use('/api/echo', require('./api/echo'));
+
+//return static assets
+app.use(express.static('./public'));
 
 //render the app server side
 app.use('/', require('./render/render'));
