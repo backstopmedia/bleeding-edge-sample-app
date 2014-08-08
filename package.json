@@ -6,7 +6,11 @@
   "scripts": {
     "prestart": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "start": "node server/server.js",
-    "test": "karma start karma.conf.js"
+
+    // TODO: Right now test:client runs in a non-ci mode.  Make different versions for cl
+    "test": "npm run test:server && npm run test:client",
+    "test:client": "karma start karma.conf.js",
+    "test:server": "jasmine-node test/server/"
   },
   "repository": {
     "type": "git",
@@ -27,9 +31,11 @@
     "reactify": "^0.14.0"
   },
   "devDependencies": {
+    "jasmine-node": "^1.14.5",
     "karma": "^0.12.21",
     "karma-browserify": "^0.2.1",
     "karma-chrome-launcher": "^0.1.4",
+    "karma-cli": "0.0.4",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
