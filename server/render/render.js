@@ -30,7 +30,7 @@ function renderToHtml(route, callback){
 
   //merge body into template
   var html = template.replace(/<\/body>/, body + "</body>");
-  
+
   process.nextTick(function(){
     callback(null, html);
   });
