@@ -18,7 +18,7 @@ require('node-jsx').install({harmony: true});
 
 var fs = require("fs");
 var React = require("react");
-var App = require("../../client/app/app");
+var App = require("../../client/app/components/app");
 var router = require('express').Router({caseSensitive: true, strict: true});
 
 //only read on startup
@@ -30,7 +30,7 @@ function renderToHtml(route, callback){
 
   //merge body into template
   var html = template.replace(/<\/body>/, body + "</body>");
-  
+
   process.nextTick(function(){
     callback(null, html);
   });
