@@ -21,6 +21,14 @@ You can then browse to [http://localhost:8080](http://localhost:8080) to try the
 
 ## Running tests
 
+Run tests once:
+
 ```bash
 npm test
+```
+
+Run tests in watch mode:
+
+```bash
+npm run-script watch
 ```
