@@ -1,0 +1,1 @@
+// show how to spy on a function within a component
