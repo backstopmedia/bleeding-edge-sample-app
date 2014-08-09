@@ -1,0 +1,44 @@
+/* == BASE ================================================================= */
+
+body {
+  font-size: 16px;
+}
+
+/* == MODULES ============================================================== */
+
+/* .main-header ------------------------------------------------------------ */
+.main-header {
+  background: #696D75;
+  border: 0;
+}
+
+.main-header a {
+  color: #ffffff;
+}
+
+.main-header .logo {
+  font-family: 'Glegoo', sans-serif;
+  font-size: 24px;
+  margin-left: 0;
+}
+
+/* .main-nav --------------------------------------------------------------- */
+.main-nav li a {
+  padding: 15px 0;
+  margin: 0 15px;
+}
+
+.main-nav li a:hover {
+  background-color: transparent;
+  border-bottom: 5px solid #A9D0DC;
+}
+
+.main-nav .active a {
+  border-bottom: 5px solid #4ABFE2;
+  font-weight: bold;
+}
+
+.main-nav .active a:hover {
+  border-bottom: 5px solid #4ABFE2;
+}
+
