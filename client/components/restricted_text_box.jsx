@@ -1,13 +1,32 @@
 /** @jsx React.DOM */
 var React = require('react');
 
+var Remaining = React.createClass({
+  render: function(){
+    var restrictions = this.props.restrictions;
+    var className = this.props.valid ? 'text-success' : 'text-danger';
+    
+    var wording = <span>{restrictions.length}/{restrictions.maxLength} {pluralize('character', restrictions.length)}</span>;
+    
+    if (restrictions.extraRequired > 0) {
+       wording = <span>need {restrictions.extraRequired} more {pluralize('character', restrictions.extraRequired)}</span>
+    }
+
+    return (
+        <div className={className}>
+          {wording}
+        </div>
+      );
+  }
+})
+
 var RestrictedTextBox = React.createClass({
   render: function(){
     var validClassName = this.validate(this.props.value) ? 'has-success' : 'has-error';
-
+    
     return (
       <div>
-          <label>
+          <label style={{display: 'block'}} >
             <div>{this.props.children}</div>
             <textarea 
               className="form-control"
@@ -15,42 +34,11 @@ var RestrictedTextBox = React.createClass({
               value={this.props.value}
               onChange={this.props.onChange}
               className={"form-control " + validClassName} />
-            {this.renderRemaining()}
+            {<Remaining restrictions={this.getRestrictions()} valid={this.validate(this.props.value)}/>}
           </label>
 
       </div>
     )
-  },
-
-  renderRemaining: function(){
-    var restrictions = this.getRestrictions();
-    var className = this.validate(this.props.value) ? 'text-success' : 'text-danger';
-    
-    if (restrictions.extraRequired > 0) {
-      return (
-        <div className={className}>
-          need {restrictions.extraRequired} more {pluralize('character', restrictions.extraRequired)}
-        </div>
-      );
-    }
-
-    // valid amount
-    else if (restrictions.extraAllowed >= 0) {
-      return (
-        <div className={className}>
-          {restrictions.length}/{restrictions.maxLength} {pluralize('character', restrictions.length)}
-        </div>
-      );
-    }
-
-    // too many
-    else if (restrictions.length > restrictions.maxLength) {
-      return (
-        <div className={className}>
-          {restrictions.length}/{restrictions.maxLength} {pluralize('character', restrictions.length)}
-        </div>
-      );
-    }
   },
 
   // derive some data from our props
@@ -78,11 +66,10 @@ var RestrictedTextBox = React.createClass({
   }
 });
 
-module.exports = RestrictedTextBox;
-
 function pluralize(str, n){
   return n === 1 ? str : str + 's';
 }
 
+module.exports = RestrictedTextBox;
 
 
