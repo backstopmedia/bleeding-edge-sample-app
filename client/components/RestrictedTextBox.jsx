@@ -4,14 +4,14 @@ var React = require('react');
 var RestrictedTextBox = React.createClass({
   render: function(){
     var validClassName = this.validate(this.props.value) ? 'has-success' : 'has-error';
-    
+
     return (
       <div>
           <label>
             <div>{this.props.children}</div>
             <textarea 
               className="form-control"
-              rows={Math.ceil(this.props.maxLength / 10)}
+              rows={5}
               value={this.props.value}
               onChange={this.props.onChange}
               className={"form-control " + validClassName} />
