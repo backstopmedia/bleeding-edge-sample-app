@@ -2,28 +2,38 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var BasicSurveyItem = require("../../../../../../client/app/components/survey/survey_items/basic_survey_item");
+var SurveyItem = require("../../../../client/components/survey/survey_item");
 
-describe("BasicSurveyItem", function(){
+var renderElem = function(props) {
+  var view = new SurveyItem(props);
+  return TestUtils.renderIntoDocument(view);
+};
+
+describe("Survey", function(){
 
   var elem = null;
+  var props = {
+    item: {
+      type: "basic"
+    }
+  };
 
   describe("rendering", function() {
-
     beforeEach(function() {
-      var view = <BasicSurveyItem />;
-      elem = TestUtils.renderIntoDocument(view);
+      elem = renderElem(props);
     });
 
     it("should render", function(){
       expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-      expect(TestUtils.scryRenderedDOMComponentsWithTag(elem, 'div').length).toBe(1);
+      expect(elem.getDOMNode().getAttribute('class')).toBe('survey-item');
     });
   });
 
   describe("user input", function() {
 
     var callbacks = {};
+    var props = {};
+    var id = "123";
 
     beforeEach(function() {
       callbacks = {
@@ -31,11 +41,19 @@ describe("BasicSurveyItem", function(){
       };
       spyOn(callbacks, "onCompleted");
 
-      var view = new BasicSurveyItem({
-        onCompleted: callbacks.onCompleted
-      });
+      props.onCompleted = callbacks.onCompleted;
+      props.item = {
+        id: id,
+        type: "basic",
+        meta: {}
+      };
 
-      elem = TestUtils.renderIntoDocument(view);
+      elem = renderElem(props);
+    });
+
+    afterEach(function() {
+      callbacks = {};
+      props = {};
     });
 
     it("responds to user input", function() {
@@ -45,9 +63,9 @@ describe("BasicSurveyItem", function(){
       TestUtils.Simulate.change(input);
       TestUtils.Simulate.blur(input);
       expect(callbacks.onCompleted).toHaveBeenCalledWith(jasmine.objectContaining({
+        id: id,
         value: newValue
       }));
     });
-
   });
 });

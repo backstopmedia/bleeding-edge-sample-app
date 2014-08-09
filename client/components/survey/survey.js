@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var React = require("react");
 var SurveyItem = require("./survey_item");
+var merge = require('lodash-node/modern/objects/merge');
 
 var SurveyView = React.createClass({
   getDefaultProps: function() {
@@ -8,26 +9,28 @@ var SurveyView = React.createClass({
       items: []
     };
   },
+  getInitialState: function () {
+    return {
+      results: {}
+    };
+  },
   handleItemCompleted: function(params) {
-    console.log('handleItemCompleted', params);
-    // TODO: merge new value into the survey data
+    var results = this.state.results;
+    results[params.id] = params.value;
+    this.setState({
+      results: results
+    });
   },
   handleClick: function() {
-    console.debug('TODO: submit the survey');
+    console.debug('TODO: submit the survey', this.state.results);
   },
   render:function(){
     var items = this.props.items.map(function(item) {
-      var props = {
+      var props = merge({}, {
         key: item.id,
-        itemData: {
-          id: item.id,
-          name: item.name,
-          label: item.label,
-          value: item.value,
-          placeholder: item.placeholder,
-          onCompleted: this.handleItemCompleted
-        }
-      };
+        item: item,
+        onCompleted: this.handleItemCompleted
+      });
       var itemView = new SurveyItem(props);
       return itemView;
     }.bind(this));

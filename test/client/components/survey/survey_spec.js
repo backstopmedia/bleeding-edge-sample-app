@@ -2,7 +2,7 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var Survey = require("../../../../../client/app/components/survey/survey");
+var Survey = require("../../../../client/components/survey/survey");
 
 var renderElem = function(props) {
   var view = new Survey(props);
@@ -29,13 +29,16 @@ describe("Survey", function(){
     beforeEach(function() {
       props.items = [{
         id: 1,
-        itemData: {}
+        type: "basic",
+        meta: {}
       }, {
         id: 2,
-        itemData: {}
+        type: "basic",
+        meta: {}
       }, {
         id: 3,
-        itemData: {}
+        type: "basic",
+        meta: {}
       }];
       elem = renderElem(props);
     });

@@ -7,15 +7,19 @@ var mockSurveyData = {
   items: [{
     "id": 35,
     "type": "basic",
-    "label": "Favorite Spell",
-    "placeholder": "type favorite spell",
-    "value": ""
+    "meta": {
+      "label": "Favorite Spell",
+      "placeholder": "type favorite spell",
+      "value": ""
+    }
   }, {
     "id": 36,
     "type": "basic",
-    "label": "Favorite Character",
-    "placeholder": "type character name",
-    "value": ""
+      "meta": {
+      "label": "Favorite Character",
+      "placeholder": "type character name",
+      "value": ""
+    }
   }]
 };
 

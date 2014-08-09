@@ -26,7 +26,8 @@
     "express": "^4.7.4",
     "node-jsx": "^0.11.0",
     "react": "^0.11.1",
-    "reactify": "^0.14.0"
+    "reactify": "^0.14.0",
+    "lodash-node": "^2.4.1"
   },
   "devDependencies": {
     "karma": "^0.12.21",
