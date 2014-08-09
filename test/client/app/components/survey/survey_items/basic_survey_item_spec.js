@@ -2,7 +2,7 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var BasicSurveyItem = require("../client/app/survey_items/basic_survey_item");
+var BasicSurveyItem = require("../../../../../../client/app/components/survey/survey_items/basic_survey_item");
 
 describe("BasicSurveyItem", function(){
 

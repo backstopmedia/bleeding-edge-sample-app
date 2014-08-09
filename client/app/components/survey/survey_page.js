@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var SurveyView = require("./survey_view");
+var Survey = require("./survey");
 
 var SurveyPage = React.createClass({
   getDefaultProps: function() {
@@ -12,7 +12,7 @@ var SurveyPage = React.createClass({
     console.log('handleSubmit', params);
   },
   render:function(){
-    return new SurveyView(this.props.data);
+    return new Survey(this.props.data);
   }
 });
 

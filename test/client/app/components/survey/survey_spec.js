@@ -2,14 +2,14 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var SurveyView = require("../client/app/survey_view");
+var Survey = require("../../../../../client/app/components/survey/survey");
 
 var renderElem = function(props) {
-  var view = new SurveyView(props);
+  var view = new Survey(props);
   return TestUtils.renderIntoDocument(view);
 };
 
-describe("SurveyView", function(){
+describe("Survey", function(){
 
   var elem = null;
   var props = {};

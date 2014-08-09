@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var SurveyItemView = require("./survey_item_view");
+var SurveyItem = require("./survey_item");
 
 var SurveyView = React.createClass({
   getDefaultProps: function() {
@@ -28,7 +28,7 @@ var SurveyView = React.createClass({
           onCompleted: this.handleItemCompleted
         }
       };
-      var itemView = new SurveyItemView(props);
+      var itemView = new SurveyItem(props);
       return itemView;
     }.bind(this));
     return <div className="survey">

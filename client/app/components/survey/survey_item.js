@@ -2,7 +2,7 @@
 var React = require("react");
 var BasicSurveyItem = require('./survey_items/basic_survey_item');
 
-var SurveyItemView = React.createClass({
+var SurveyItem = React.createClass({
   getDefaultProps: function() {
     return {
       itemData: {
@@ -23,4 +23,4 @@ var SurveyItemView = React.createClass({
   }
 });
 
-module.exports = SurveyItemView;
+module.exports = SurveyItem;
