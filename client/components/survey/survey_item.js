@@ -1,12 +1,8 @@
 /** @jsx React.DOM */
 var React = require("react");
-var BasicSurveyItem = require('./survey_items/basic_survey_item');
 var PropsMethodMixin = require("../../mixins/PropsMethodMixin");
+var surveyItemFactory = require('./survey_item_factory');
 var merge = require('lodash-node/modern/objects/merge');
-
-var surveyItemTypes = {
-  "basic": BasicSurveyItem
-};
 
 var SurveyItem = React.createClass({
   mixins: [PropsMethodMixin],
@@ -23,7 +19,7 @@ var SurveyItem = React.createClass({
     });
   },
   getSurveyItemClass: function () {
-    return surveyItemTypes[this.props.item.type];
+    return surveyItemFactory.getSurveyItemClass(this.props.item.type);
   },
   renderSurveyItem: function() {
     var ItemComponentClass = this.getSurveyItemClass();
