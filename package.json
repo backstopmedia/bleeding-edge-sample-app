@@ -7,7 +7,7 @@
     "prestart": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "build": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "start": "node server/server.js",
-    "test": "karma start karma.conf.js"
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
