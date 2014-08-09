@@ -5,8 +5,7 @@
 // into the child via props](http://facebook.github.io/react/tips/communicate-between-components.html).
 //
 // Parents are not required to define prop methods, so this mixin facilitates
-// calling a method if it exists, ignoring it otherwise. See the `Input`
-// component for an example.
+// calling a method if it exists, ignoring it otherwise.
 
 var PropsMethodMixin = {
   hasMethodOnProps: function(methodName) {
