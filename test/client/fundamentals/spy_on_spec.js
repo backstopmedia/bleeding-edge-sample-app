@@ -6,26 +6,24 @@ var TestUtils = React.addons.TestUtils;
 // TODO: jasmine-react is spewing warnings about jasmineContent div not being found
 var jasmineReact = require("jasmine-react-helpers");
 
-var HelloTime = require('../../../client/testing_examples/hello_time');
+var HelloRandom = require('../../../client/testing_examples/hello_random');
 
 
-describe("HelloTime", function(){
+describe("HelloRandom", function(){
   describe("spyOnClass", function(){
-    xit("should be able to spy on a function of a react class", function(){
-      // We want to render the HelloTime component and validate the output is correct.
-      //   The important part to test is "is the date formatted correctly?", but the date
-      //   is dynamic so we want to stub it out with a fake date.
-      // Note: The fact that we are using a date is just as an illustrative example, we would use the
-      //   same technique if one function in a react class is complex and we want to test that, but
-      //   we don't want to implicity test all other complex functions it calls.
+    it("should be able to spy on a function of a react class", function(){
+      // We want to render the HelloRandom component and validate the output is correct.
+      //   The important part to test is "is the render function outputting the correct text
+      //   for a given author".
+      //   In this example the author is random which makes it very difficult to test.  But even
+      //   if your app doesn't have any "random" functions, the same strategy would be helpful if
+      //   a function like getCurrentAuthor had complex behavior which should be tested independently
+      //   of the render function.
+      jasmineReact.spyOnClass(HelloRandom, "getRandomAuthor").andReturn({name: "Fake User", githubUsername: "fakeGithub"});
 
-      var fakeDate = new Date("Sat Aug 09 2014 17:10:31 GMT-0700 (PDT)");
-      jasmineReact.spyOnClass(HelloTime, "getDate").andReturn(fakeDate);
+      var myHelloTime = TestUtils.renderIntoDocument(<HelloRandom />);
 
-      var myHelloTime = TestUtils.renderIntoDocument(<HelloTime />);
-
-      expect(myHelloTime.currentTime()).toBe("17:10");
-      expect(myHelloTime.getDOMNode().textContent).toBe("The current time is: 17:10");
+      expect(myHelloTime.getDOMNode().textContent).toBe("Fake User is an author and their github handle is fakeGithub.");
     });
   });
 });
