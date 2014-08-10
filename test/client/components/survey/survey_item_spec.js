@@ -28,7 +28,8 @@ describe("Survey", function(){
 
     it("should render", function(){
       expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-      expect(elem.getDOMNode().getAttribute('class').indexOf('survey-item') > -1).toBe(true);
+      var found = TestUtils.findRenderedDOMComponentWithClass(elem, 'survey-item');
+      expect(found).toNotBe(null);
     });
   });
 
@@ -63,7 +64,7 @@ describe("Survey", function(){
 
     it("responds to user input", function() {
       var newValue = "test";
-      var input = elem.getDOMNode().getElementsByTagName('input')[0];
+      var input = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input')[0].getDOMNode();
       input.value = newValue;
       TestUtils.Simulate.change(input);
       TestUtils.Simulate.blur(input);

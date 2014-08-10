@@ -45,7 +45,7 @@ describe("TakeSurvey", function(){
 
     it("renders items", function() {
       expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-      var surveyItems = elem.getDOMNode().querySelectorAll('.survey-item');
+      var surveyItems = TestUtils.scryRenderedDOMComponentsWithClass(elem, 'survey-item');
       expect(surveyItems.length).toBe(2);
     });
 

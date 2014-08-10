@@ -29,7 +29,7 @@ describe("MultipleChoiceItem", function(){
   });
 
   it("responds to user input", function() {
-    var input = elem.getDOMNode().getElementsByTagName('input')[1];
+    var input = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input')[1].getDOMNode();
     input.checked = "checked";
     TestUtils.Simulate.change(input);
     expect(callbacks.onCompleted).toHaveBeenCalledWith('b');
