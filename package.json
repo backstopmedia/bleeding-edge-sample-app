@@ -7,7 +7,8 @@
     "prestart": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "build": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "start": "node server/server.js",
-    "test": "karma start karma.conf.js"
+    "watch": "./node_modules/.bin/karma start karma.conf.js",
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   },
   "devDependencies": {
     "karma": "^0.12.21",
-    "karma-browserify": "^0.2.1",
+    "karma-bro": "^0.6.2",
     "karma-chrome-launcher": "^0.1.4",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
