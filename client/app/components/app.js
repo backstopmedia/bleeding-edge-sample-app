@@ -17,7 +17,7 @@ var App = React.createClass({
     return (
       <div className='app'>
         <MainHeader currentUri='/'/>
-        <div className='main-content'>
+        <div className='main-content container-fluid'>
           {this.props.children}
         </div>
       </div>

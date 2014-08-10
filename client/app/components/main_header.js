@@ -9,12 +9,14 @@ var MainHeader = React.createClass({
     currentUri: React.PropTypes.string.isRequired
   },
 
-  render:function(){
+  render: function () {
     return (
-      <div className='main-header'>
-        <h1 className='logo'>SurveyBuilder</h1>
-        <MainNav currentUri={this.props.currentUri} />
-      </div>
+      <header className='main-header navbar navbar-static-top'>
+        <div className='container-fluid'>
+          <a href='/' className='navbar-brand logo'>SurveyBuilder</a>
+          <MainNav currentUri={this.props.currentUri} />
+        </div>
+      </header>
     );
   }
 });

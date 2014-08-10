@@ -6,7 +6,7 @@ var TestUtils = React.addons.TestUtils;
 var MainNav = require('../../../../client/app/components/main_nav');
 
 // verifying karma-jasmine is working
-describe("components/main_nav", function (){
+describe("components/main_nav", function () {
   var subject;
 
   beforeEach(function () {
@@ -33,14 +33,19 @@ describe("components/main_nav", function (){
         subject.setProps({ currentUri: '/' });
       });
 
-      it('marks "All Surveys" as current', function () {
+      it('marks "All Surveys" as active', function () {
         var currentItem = TestUtils.findRenderedDOMComponentWithClass(
           subject,
-          'current'
+          'active'
         );
 
-        expect( currentItem.props.href ).toBe( '/' );
-        expect( currentItem.props.children ).toBe( 'All Surveys' );
+        var currentItemLink = TestUtils.findRenderedDOMComponentWithTag(
+          currentItem,
+          'a'
+        );
+
+        expect( currentItemLink.props.href ).toBe( '/' );
+        expect( currentItemLink.props.children ).toBe( 'All Surveys' );
       });
     });
 
@@ -49,14 +54,19 @@ describe("components/main_nav", function (){
         subject.setProps({ currentUri: '/add_survey' });
       });
 
-      it('marks "Add Survey" as current', function () {
+      it('marks "Add Survey" as active', function () {
         var currentItem = TestUtils.findRenderedDOMComponentWithClass(
           subject,
-          'current'
+          'active'
         );
 
-        expect( currentItem.props.href ).toBe( '/add_survey' );
-        expect( currentItem.props.children ).toBe( 'Add Survey' );
+        var currentItemLink = TestUtils.findRenderedDOMComponentWithTag(
+          currentItem,
+          'a'
+        );
+
+        expect( currentItemLink.props.href ).toBe( '/add_survey' );
+        expect( currentItemLink.props.children ).toBe( 'Add Survey' );
       });
     });
   });

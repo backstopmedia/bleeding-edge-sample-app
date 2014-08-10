@@ -19,15 +19,15 @@ var MainNav = React.createClass({
     var items = Object.keys(NAV_ITEMS).map(function (key, i) {
       var uri = NAV_ITEMS[key];
       var className = classSet({
-        'current': uri === currentUri
+        'active': uri === currentUri
       });
 
-      return <a key={i} href={uri} className={className}>{key}</a>;
+      return <li className={className}><a key={i} href={uri}>{key}</a></li>;
     });
 
     return (
-      <nav className='main-nav'>
-        {items}
+      <nav className='main-nav' role='navigation'>
+        <ul className='nav navbar-nav'>{items}</ul>
       </nav>
     );
   }
