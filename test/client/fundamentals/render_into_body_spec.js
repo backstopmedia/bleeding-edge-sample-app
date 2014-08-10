@@ -45,4 +45,6 @@ describe("HelloWorld", function(){
     });
 
   });
+
+  // TODO: build this same example with jasmineReact and the unmounting comes for free.
 });
