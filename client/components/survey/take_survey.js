@@ -3,7 +3,7 @@ var React = require("react");
 var SurveyItem = require("./survey_item");
 var merge = require('lodash-node/modern/objects/merge');
 
-var SurveyView = React.createClass({
+var TakeSurvey = React.createClass({
   getDefaultProps: function() {
     return {
       items: []
@@ -43,4 +43,4 @@ var SurveyView = React.createClass({
   }
 });
 
-module.exports = SurveyView;
+module.exports = TakeSurvey;
