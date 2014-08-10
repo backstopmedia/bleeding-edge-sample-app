@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var React = require("react");
 var PropsMethodMixin = require("../../../mixins/PropsMethodMixin");
+var uniqueId = require('lodash-node/modern/utilities/uniqueId');
 
 /*
 
@@ -18,15 +19,14 @@ is taken care of by the parent `SurveyItem` component.
 
 var BasicSurveyItem = React.createClass({
   mixins: [PropsMethodMixin],
-  getDefaultProps: function() {
-    return {
-      value: null,
-      placeholder: null,
-      onCompleted: function() {}
-    };
+  propTypes: {
+    value: React.PropTypes.string.isRequired,
+    placeholder: React.PropTypes.string,
+    onCompleted: React.PropTypes.func.isRequired
   },
   getInitialState: function() {
     return {
+      id: uniqueId('basic-'),
       value: this.props.value
     };
   },
@@ -37,14 +37,22 @@ var BasicSurveyItem = React.createClass({
     this.setState({value: event.target.value});
     this.callMethodOnProps('onCompleted', event.target.value);
   },
-  render:function(){
+  render:function() {
+    var id = this.state.id;
     return <div>
-      <label>{this.props.label}</label>
-      <input  
-        placeholder={this.props.placeholder} 
-        value={this.state.value} 
-        onChange={this.handleChanged}
-        onBlur={this.handleCompleted}/>
+      <div className="col-lg-6 col-md-8 col-sm-12">
+        <div className="form-group">
+          <label htmlFor={id}>{this.props.label}</label>
+          <input  
+            id={id}
+            name={id}
+            className="form-control"
+            placeholder={this.props.placeholder} 
+            value={this.state.value} 
+            onChange={this.handleChanged}
+            onBlur={this.handleCompleted}/>
+        </div>
+      </div>
     </div>
   }
 });

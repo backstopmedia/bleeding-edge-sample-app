@@ -38,7 +38,7 @@ var SurveyView = React.createClass({
       <h1>{this.props.title}</h1>
       <p>{this.props.description}</p>
       {items}
-      <button onClick={this.handleClick}>Submit</button>
+      <button className="btn btn-primary" onClick={this.handleClick}>Submit</button>
     </div>
   }
 });

@@ -14,7 +14,10 @@ describe("Survey", function(){
   var elem = null;
   var props = {
     item: {
-      type: "basic"
+      type: "basic",
+      meta: {
+        value: "test"
+      }
     }
   };
 
@@ -25,7 +28,7 @@ describe("Survey", function(){
 
     it("should render", function(){
       expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-      expect(elem.getDOMNode().getAttribute('class')).toBe('survey-item');
+      expect(elem.getDOMNode().getAttribute('class').indexOf('survey-item') > -1).toBe(true);
     });
   });
 
@@ -45,7 +48,9 @@ describe("Survey", function(){
       props.item = {
         id: id,
         type: "basic",
-        meta: {}
+        meta: {
+          value: "test"
+        }
       };
 
       elem = renderElem(props);

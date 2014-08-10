@@ -15,10 +15,21 @@ var mockSurveyData = {
   }, {
     "id": 36,
     "type": "basic",
-      "meta": {
+    "meta": {
       "label": "Favorite Character",
       "placeholder": "type character name",
       "value": ""
+    }
+  }, {
+    "id": 37,
+    "type": "multiple_choice",
+    "meta": {
+      "label": "Favorite Magical Tool",
+      "choices": [
+        "Time Turner",
+        "Pensive",
+        "Port-key"
+      ]
     }
   }]
 };
