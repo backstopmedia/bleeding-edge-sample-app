@@ -11,7 +11,7 @@ var HelloTime = require('../../../client/testing_examples/hello_time');
 
 describe("HelloTime", function(){
   describe("spyOnClass", function(){
-    it("should be able to spy on a function of a react class", function(){
+    xit("should be able to spy on a function of a react class", function(){
       // We want to render the HelloTime component and validate the output is correct.
       //   The important part to test is "is the date formatted correctly?", but the date
       //   is dynamic so we want to stub it out with a fake date.
