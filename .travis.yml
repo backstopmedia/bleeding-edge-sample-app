@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "0.11"
+  - "0.10"
+
+# Get the karma CLI.
+before_install:
+  - npm install -g karma-cli
