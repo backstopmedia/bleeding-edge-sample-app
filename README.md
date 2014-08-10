@@ -1,6 +1,8 @@
 Survey Builder Sample App
 ========================
 
+![](https://travis-ci.org/rtfeldman/bleeding-edge-sample-app.svg?branch=master)
+
 A sample app for a Bleeding Edge Press book.
 
 ## Installation
