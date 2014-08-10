@@ -7,7 +7,7 @@
     "prestart": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "build": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "start": "node server/server.js",
-    "test": "npm run test:server && npm run test:client:unit",
+    "test": "npm run-script test:server && npm run-script test:client:unit",
     "test:server": "jasmine-node test/server/",
     "test:client": "./node_modules/.bin/karma start karma.conf.js",
     "test:client:unit": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
@@ -40,6 +40,7 @@
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
-    "react-tools": "^0.11.1"
+    "react-tools": "^0.11.1",
+    "rewireify": "0.0.9"
   }
 }
