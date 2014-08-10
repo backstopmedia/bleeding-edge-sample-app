@@ -13,6 +13,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'test/client/support/phantomjs-shims.js',
       'client/**/*.js',
       'test/client/**/*.js'
     ],
@@ -62,9 +63,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-//    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
-//    browsers: ['Chrome', 'Firefox'],
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+//    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
