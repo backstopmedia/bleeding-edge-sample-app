@@ -2,6 +2,146 @@
 
 body {
   font-size: 16px;
+  color: #696d75;
+}
+
+/* == BUTTONS ============================================================== */
+
+.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
+}
+
+.btn-primary:active, 
+.btn-primary.active, 
+.open>.dropdown-toggle.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
+}
+
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open>.dropdown-toggle.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
+}
+
+.btn-secondary:active, 
+.btn-secondary.active, 
+.open>.dropdown-toggle.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
+}
+
+.btn-secondary:hover, 
+.btn-secondary:focus, 
+.btn-secondary:active, 
+.btn-secondary.active, 
+.open>.dropdown-toggle.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
+}
+
+.btn-secondary .glyphicon {
+  color: #4195af;
+}
+
+/* == SURVEY HEADER ======================================================== */
+
+.survey-header {
+  width: 100%;
+  position: relative;
+  margin: 24px 0;
+}
+
+.survey-header h2 {
+  background: white;
+  position: relative;
+  float: left;
+  padding-right: 12px;
+  margin: 0;
+  z-index: 1;
+}
+
+.survey-header hr {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 100%;
+  background: #999;
+  z-index: 0;
+  margin: 0;
+}
+
+/* == WELLS ================================================================ */
+
+.well-active {
+  background: #fff;
+  border: 1px solid #4abfe2;
+}
+
+.well-active label {
+  color: #4abfe2;
+}
+
+.well .close {
+  font-size: 12px;
+  background: #aaa;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  color: white;
+  margin-top: -12px;
+  margin-right: -12px;
+}
+
+.well .close:focus {
+  outline: none;
+}
+
+.well-dropZone {
+  background: #f5fcf2;
+  border-color: #b5b5b5;
+  border-style: dashed;
+  text-align: center;
+  color: #b5b5b5;
+}
+
+/* == TABLES =============================================================== */
+
+.survey-table {
+
+}
+
+.survey-table > thead > tr > th {
+  border: none;
+  color: #c6c6c6;
+  font-weight: normal;
+}
+
+.survey-table > tbody > tr > td {
+  border: none;
+}
+
+.btn-editSurvey {
+  color: #f5a623;
+}
+
+.btn-deleteSurvey {
+  color: red;
 }
 
 /* == MODULES ============================================================== */
