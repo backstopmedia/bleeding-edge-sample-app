@@ -9,7 +9,7 @@ var ModuleButton = React.createClass({
   },
   render: function () {
     return (
-      <button className="btn btn-secondary">
+      <button className="btn btn-lg btn-secondary">
         <span className="glyphicon glyphicon-move" onClick={this.props.onClick}></span> {this.props.text}
       </button>
     );

@@ -59,12 +59,7 @@ body {
   color: #4195af;
 }
 
-/* == TYPOGRAPHY =========================================================== */
-
-h3,
-h4 {
-  color: #4abfe2;
-}
+/* == SURVEY HEADER ======================================================== */
 
 .survey-header {
   width: 100%;
@@ -98,6 +93,10 @@ h4 {
   border: 1px solid #4abfe2;
 }
 
+.well-active label {
+  color: #4abfe2;
+}
+
 .well .close {
   font-size: 12px;
   background: #aaa;
@@ -111,6 +110,38 @@ h4 {
 
 .well .close:focus {
   outline: none;
+}
+
+.well-dropZone {
+  background: #f5fcf2;
+  border-color: #b5b5b5;
+  border-style: dashed;
+  text-align: center;
+  color: #b5b5b5;
+}
+
+/* == TABLES =============================================================== */
+
+.survey-table {
+
+}
+
+.survey-table > thead > tr > th {
+  border: none;
+  color: #c6c6c6;
+  font-weight: normal;
+}
+
+.survey-table > tbody > tr > td {
+  border: none;
+}
+
+.btn-editSurvey {
+  color: #f5a623;
+}
+
+.btn-deleteSurvey {
+  color: red;
 }
 
 /* == MODULES ============================================================== */
