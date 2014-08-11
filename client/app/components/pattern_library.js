@@ -2,15 +2,45 @@
 
 var React = require("react");
 
-var SurveyHeader = require('../../components/survey_header');
-var ModuleButton = require('../../components/module_button');
+var SurveyHeader = require("../../components/survey_header");
+var ModuleButton = require("../../components/module_button");
+var SurveyTable = require("../../components/survey_table");
+
+var surveys = [{
+  id: "287",
+  uri: "/surveys/287",
+  editUri: "/surveys/287/edit",
+  title: "Game of Thrones",
+  publishedDate: new Date(2014, 07, 1),
+  modifiedDate: new Date(2014, 07, 6),
+  total: 653,
+  activity: []
+}, {
+  id: "345",
+  uri: "/surveys/345",
+  editUri: "/surveys/345/edit",
+  title: "Favorite Harry Potter Character",
+  publishedDate: new Date(2014, 06, 17),
+  modifiedDate: new Date(2014, 07, 10),
+  total: 12597,
+  activity: []
+}, {
+  id: "378",
+  uri: "/surveys/378",
+  editUri: "/surveys/378/edit",
+  title: "Do You Understand Net Neutrality?",
+  publishedDate: new Date(2014, 06, 04),
+  modifiedDate: new Date(2014, 06, 29),
+  total: 17334,
+  activity: []
+}];
 
 var PatternLibrary = React.createClass({
 
   renderHeaders: function() {
     return [1,2,3,4,5,6].map(function(i) {
-      var tagName = 'h' + i;
-      return new React.DOM[tagName]({}, 'Header ' + tagName);
+      var tagName = "h" + i;
+      return new React.DOM[tagName]({}, "Header " + tagName);
     });
   },
 
@@ -59,69 +89,6 @@ var PatternLibrary = React.createClass({
       </div>
     );
   },
-  renderTable: function() {
-    return (
-      <table className="table survey-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Published On</th>
-            <th>Last Active</th>
-            <th>Completions</th>
-            <th>Activity</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="#">Game of Thrones</a></td>
-            <td>August 1, 2014</td>
-            <td>August 6, 2014</td>
-            <td>653</td>
-            <td></td>
-            <td>
-              <button className="btn btn-link btn-editSurvey">
-                <i className="glyphicon glyphicon-pencil"></i>
-              </button>
-              <button className="btn btn-link btn-deleteSurvey">
-                <i className="glyphicon glyphicon-remove-circle"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="#">Favorite Harry Potter Character</a></td>
-            <td>July 17, 2014</td>
-            <td>August 10, 2014</td>
-            <td>12,459</td>
-            <td></td>
-            <td>
-              <button className="btn btn-link btn-editSurvey">
-                <i className="glyphicon glyphicon-pencil"></i>
-              </button>
-              <button className="btn btn-link btn-deleteSurvey">
-                <i className="glyphicon glyphicon-remove-circle"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="#">Do You Understand Net Neutrality?</a></td>
-            <td>July 4, 2014</td>
-            <td>July 29, 2014</td>
-            <td>17,334</td>
-            <td></td>
-            <td>
-              <button className="btn btn-link btn-editSurvey">
-                <i className="glyphicon glyphicon-pencil"></i>
-              </button>
-              <button className="btn btn-link btn-deleteSurvey">
-                <i className="glyphicon glyphicon-remove-circle"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    );
-  },
   render: function() {
     return (
       <div className="pattern-library">
@@ -140,7 +107,7 @@ var PatternLibrary = React.createClass({
         </div>
 
         <SurveyHeader text="Table" />
-        {this.renderTable()}
+        <SurveyTable surveys={surveys} />
 
       </div>
     );
