@@ -3,7 +3,6 @@
 var React = require("react");
 
 var MainHeader = require('./main_header');
-var PatternLibrary = require('./pattern_library');
 
 var App = React.createClass({
   componentDidMount: function () {
@@ -20,7 +19,6 @@ var App = React.createClass({
         <MainHeader currentUri='/'/>
         <div className='main-content container-fluid'>
           {this.props.children}
-          <PatternLibrary />
         </div>
       </div>
     );
