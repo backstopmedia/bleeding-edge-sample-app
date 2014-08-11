@@ -11,11 +11,9 @@ var MainHeader = React.createClass({
 
   render: function () {
     return (
-      <header className='main-header navbar navbar-static-top'>
-        <div className='container-fluid'>
-          <a href='/' className='navbar-brand logo'>SurveyBuilder</a>
-          <MainNav currentUri={this.props.currentUri} />
-        </div>
+      <header className='main-header navbar navbar-static-top container'>
+        <a href='/' className='navbar-brand logo'>SurveyBuilder</a>
+        <MainNav currentUri={this.props.currentUri} />
       </header>
     );
   }
