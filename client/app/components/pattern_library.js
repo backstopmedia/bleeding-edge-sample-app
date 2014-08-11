@@ -90,6 +90,82 @@ var PatternLibrary = React.createClass({
       </div>
     );
   },
+
+  renderForms: function() {
+    return (
+      <div className="row">
+        <div className="col-lg-6">
+
+          <div className="survey">
+            <h1>Survey Title</h1>
+            <p>A description of the survey and what we want to know and why.</p>
+            <div className="survey-item">
+              <div className="form-group">
+                <label className="survey-item-label">Email address</label>
+                <div className="survey-item-content">
+                  <input className="form-control" placeholder="Email Address" />
+                </div>
+              </div>
+            </div>
+            <div className="survey-item">
+              <div className="form-group">
+                <label className="survey-item-label">Select from a list</label>
+                <div className="survey-item-content">
+                  <div className="checkbox">
+                    <label>
+                      <input type="checkbox" value="" />
+                      Option one is this and that&mdash;be sure to include why it’s great
+                    </label>
+                  </div>
+                  <div className="checkbox">
+                    <label>
+                      <input type="checkbox" value="" />
+                      Option one is this and that&mdash;be sure to include why it’s great
+                    </label>
+                  </div>
+                  <div className="checkbox">
+                    <label>
+                      <input type="checkbox" value="" />
+                      Option one is this and that&mdash;be sure to include why it’s great
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="survey-item">
+              <div className="form-group">
+                <label className="survey-item-label">Which is your favorite</label>
+                <div className="survey-item-content">
+                  <div className="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                      Option one is this and that&mdash;be sure to include why it’s great
+                    </label>
+                  </div>
+                  <div className="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                      Option two can be something else and selecting it will deselect option one
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="survey-item">
+              <div className="form-group">
+                <label className="survey-item-label">Comments</label>
+                <div className="survey-item-content">
+                  <textarea className="form-control" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    );
+  },
+
   render: function() {
     return (
       <div className="pattern-library">
@@ -109,6 +185,9 @@ var PatternLibrary = React.createClass({
 
         <SurveyHeader text="Table" />
         <SurveyTable surveys={surveys} />
+
+        <SurveyHeader text="Form Styles" />
+        {this.renderForms()}
 
         <SurveyHeader text="Brand" />
         <Brand />
