@@ -5,6 +5,7 @@ var React = require("react");
 var SurveyHeader = require("../../components/survey_header");
 var ModuleButton = require("../../components/module_button");
 var SurveyTable = require("../../components/survey_table");
+var Brand = require("../../components/brand");
 
 var surveys = [{
   id: "287",
@@ -108,6 +109,9 @@ var PatternLibrary = React.createClass({
 
         <SurveyHeader text="Table" />
         <SurveyTable surveys={surveys} />
+
+        <SurveyHeader text="Brand" />
+        <Brand />
 
       </div>
     );
