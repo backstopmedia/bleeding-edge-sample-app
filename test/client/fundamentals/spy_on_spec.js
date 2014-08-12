@@ -3,7 +3,6 @@
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
 
-// TODO: jasmine-react is spewing warnings about jasmineContent div not being found
 var jasmineReact = require("jasmine-react-helpers");
 
 var HelloRandom = require('../../../client/testing_examples/hello_random');
