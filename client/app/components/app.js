@@ -4,9 +4,6 @@ var React = require("react");
 
 var MainHeader = require('./main_header');
 
-var SurveyEditor = require('./survey_editor');
-var PatternLibrary = require('./pattern_library');
-
 var App = React.createClass({
   render: function () {
     return (

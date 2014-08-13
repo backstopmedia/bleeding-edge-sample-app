@@ -3,7 +3,7 @@
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
 
-var SurveyTable = require('../../../client/app/components/survey_table');
+var SurveyTable = require('../../../../client/app/components/survey_table');
 
 var data = [{
   id: "287",
