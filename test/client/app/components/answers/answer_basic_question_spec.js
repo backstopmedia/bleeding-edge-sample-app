@@ -2,9 +2,9 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var AnswerBasicSurveQuestion = require("../../../../../client/app/components/answers/answer_basic_question");
+var AnswerBasicQuestion = require("../../../../../client/app/components/answers/answer_basic_question");
 
-describe("AnswerBasicSurveQuestion", function(){
+describe("AnswerBasicQuestion", function(){
 
   var elem = null;
   var callbacks = {};
@@ -15,7 +15,7 @@ describe("AnswerBasicSurveQuestion", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new AnswerBasicSurveQuestion({
+    var view = new AnswerBasicQuestion({
       value: "test",
       onCompleted: callbacks.onCompleted
     });
@@ -25,7 +25,7 @@ describe("AnswerBasicSurveQuestion", function(){
 
   it("should render", function(){
     expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-    expect(TestUtils.scryRenderedDOMComponentsWithTag(elem, 'div').length).toBe(3);
+    expect(TestUtils.scryRenderedDOMComponentsWithTag(elem, 'div').length).toBe(2);
   });
 
   it("responds to user input", function() {

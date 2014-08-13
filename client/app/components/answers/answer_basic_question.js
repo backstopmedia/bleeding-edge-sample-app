@@ -39,19 +39,17 @@ var AnswerBasicQuestion = React.createClass({
   },
   render:function() {
     var id = this.state.id;
-    return <div>
-      <div className="col-lg-6 col-md-8 col-sm-12">
-        <div className="form-group">
-          <label htmlFor={id}>{this.props.label}</label>
-          <input  
-            id={id}
-            name={id}
-            className="form-control"
-            placeholder={this.props.placeholder} 
-            value={this.state.value} 
-            onChange={this.handleChanged}
-            onBlur={this.handleCompleted}/>
-        </div>
+    return <div className="form-group">
+      <label htmlFor={id} className="survey-item-label">{this.props.label}</label>
+      <div className="survey-item-content">
+        <input  
+          id={id}
+          name={id}
+          className="form-control"
+          placeholder={this.props.placeholder} 
+          value={this.state.value} 
+          onChange={this.handleChanged}
+          onBlur={this.handleCompleted}/>
       </div>
     </div>
   }

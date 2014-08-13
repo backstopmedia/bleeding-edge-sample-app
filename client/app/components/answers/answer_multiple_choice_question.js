@@ -79,12 +79,10 @@ var AnswerMultipleChoiceQuestion = React.createClass({
   },
   render: function() {
     var id = this.state.id;
-    return <div>
-      <div className="col-lg-6 col-md-8 col-sm-12">
-        <div className="form-group">
-          <label htmlFor={id}>{this.props.label}</label>
+    return <div className="form-group">
+      <label className="survey-label" htmlFor={id}>{this.props.label}</label>
+      <div className="survey-item-content">
           {this.renderChoices()}
-        </div>
       </div>
     </div>
   }

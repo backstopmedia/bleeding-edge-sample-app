@@ -29,7 +29,7 @@ var TakeSurveyItem = React.createClass({
     return new ItemComponentClass(props);
   },
   render:function() {
-    return <div className="survey-item row">
+    return <div className="survey-item">
       {this.renderSurveyItem()}
     </div>
   }
