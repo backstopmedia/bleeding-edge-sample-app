@@ -17,7 +17,7 @@ is taken care of by the parent `SurveyItem` component.
 
 */
 
-var BasicSurveyItem = React.createClass({
+var AnswerBasicQuestion = React.createClass({
   mixins: [PropsMethodMixin],
   propTypes: {
     value: React.PropTypes.string.isRequired,
@@ -57,4 +57,4 @@ var BasicSurveyItem = React.createClass({
   }
 });
 
-module.exports = BasicSurveyItem;
+module.exports = AnswerBasicQuestion;

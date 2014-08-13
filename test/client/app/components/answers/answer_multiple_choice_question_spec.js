@@ -2,9 +2,9 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var MultipleChoiceItem = require("../../../../../client/components/survey/survey_items/multiple_choice_item");
+var AnswerMultipleChoiceQuestion = require("../../../../../client/app/components/answers/answer_multiple_choice_question");
 
-describe("MultipleChoiceItem", function(){
+describe("AnswerMultipleChoiceQuestion", function(){
 
   var elem = null;
   var callbacks = {};
@@ -16,7 +16,7 @@ describe("MultipleChoiceItem", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new MultipleChoiceItem({
+    var view = new AnswerMultipleChoiceQuestion({
       onCompleted: callbacks.onCompleted,
       choices: choices
     });

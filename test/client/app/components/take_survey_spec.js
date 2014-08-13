@@ -2,7 +2,7 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var TakeSurvey = require("../../../../client/components/survey/take_survey");
+var TakeSurvey = require("../../../../client/app/components/take_survey");
 
 var renderElem = function(props) {
   var view = new TakeSurvey(props);

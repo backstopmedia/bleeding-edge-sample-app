@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var SurveyItem = require("./survey_item");
+var TakeSurveyItem = require("./take_survey_item");
 var merge = require('lodash-node/modern/objects/merge');
 
 var TakeSurvey = React.createClass({
@@ -31,7 +31,7 @@ var TakeSurvey = React.createClass({
         item: item,
         onCompleted: this.handleItemCompleted
       });
-      var itemView = new SurveyItem(props);
+      var itemView = new TakeSurveyItem(props);
       return itemView;
     }.bind(this));
     return <div className="survey">

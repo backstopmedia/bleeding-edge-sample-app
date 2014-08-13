@@ -2,9 +2,9 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var BasicSurveyItem = require("../../../../../client/components/survey/survey_items/basic_survey_item");
+var AnswerBasicSurveQuestion = require("../../../../../client/app/components/answers/answer_basic_question");
 
-describe("BasicSurveyItem", function(){
+describe("AnswerBasicSurveQuestion", function(){
 
   var elem = null;
   var callbacks = {};
@@ -15,7 +15,7 @@ describe("BasicSurveyItem", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new BasicSurveyItem({
+    var view = new AnswerBasicSurveQuestion({
       value: "test",
       onCompleted: callbacks.onCompleted
     });

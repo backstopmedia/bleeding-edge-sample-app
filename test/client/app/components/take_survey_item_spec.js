@@ -2,10 +2,10 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var SurveyItem = require("../../../../client/components/survey/survey_item");
+var TakeSurveyItem = require("../../../../client/app/components/take_survey_item");
 
 var renderElem = function(props) {
-  var view = new SurveyItem(props);
+  var view = new TakeSurveyItem(props);
   return TestUtils.renderIntoDocument(view);
 };
 

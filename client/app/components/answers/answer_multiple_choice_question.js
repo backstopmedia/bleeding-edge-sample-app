@@ -44,7 +44,7 @@ var Choice = React.createClass({
   }
 });
 
-var MutipleChoiceItem = React.createClass({
+var AnswerMultipleChoiceQuestion = React.createClass({
   mixins: [PropsMethodMixin],
   propTypes: {
     value: React.PropTypes.string,
@@ -90,4 +90,4 @@ var MutipleChoiceItem = React.createClass({
   }
 });
 
-module.exports = MutipleChoiceItem;
+module.exports = AnswerMultipleChoiceQuestion;
