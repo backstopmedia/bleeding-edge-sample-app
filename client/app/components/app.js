@@ -1,16 +1,15 @@
 /** @jsx React.DOM */
 
 var React = require("react");
-
 var MainHeader = require('./main_header');
 
 var App = React.createClass({
   render: function () {
     return (
       <div className='app'>
-        <MainHeader currentUri='/'/>
+        <MainHeader/>
         <div className='main-content container'>
-          {this.props.children}
+          {<this.props.activeRouteHandler />}
         </div>
       </div>
     );

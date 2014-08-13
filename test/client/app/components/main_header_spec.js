@@ -12,7 +12,7 @@ describe("components/main_nav", function (){
 
   beforeEach(function () {
     subject = TestUtils.renderIntoDocument(
-      <MainHeader currentUri='/add_survey' />
+      <MainHeader />
     );
   });
 
@@ -26,7 +26,6 @@ describe("components/main_nav", function (){
       var mainNav = TestUtils.findRenderedComponentWithType(subject, MainNav);
 
       expect( mainNav ).not.toBe( null );
-      expect( mainNav.props.currentUri ).toBe( '/add_survey' );
     });
   });
 });

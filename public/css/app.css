@@ -252,11 +252,11 @@ input[type=text]:focus, textarea:focus {
   border-bottom: 5px solid #A9D0DC;
 }
 
-.main-nav .active a {
+.main-nav a.active {
   border-bottom: 5px solid #4ABFE2;
   font-weight: bold;
 }
 
-.main-nav .active a:hover {
+.main-nav a.active:hover {
   border-bottom: 5px solid #4ABFE2;
 }
