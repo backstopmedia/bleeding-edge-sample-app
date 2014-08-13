@@ -22,7 +22,7 @@ var MainNav = React.createClass({
         'active': uri === currentUri
       });
 
-      return <li className={className}><a key={i} href={uri}>{key}</a></li>;
+      return <li key={i} className={className}><a href={uri}>{key}</a></li>;
     });
 
     return (

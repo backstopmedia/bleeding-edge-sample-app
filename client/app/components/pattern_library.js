@@ -2,10 +2,10 @@
 
 var React = require("react");
 
-var SurveyHeader = require("../../components/survey_header");
-var ModuleButton = require("../../components/module_button");
-var SurveyTable = require("../../components/survey_table");
-var Brand = require("../../components/brand");
+var Divider = require("./divider");
+var ModuleButton = require("./module_button");
+var SurveyTable = require("./survey_table");
+var Brand = require("./brand");
 
 var surveys = [{
   id: "287",
@@ -170,26 +170,26 @@ var PatternLibrary = React.createClass({
     return (
       <div className="pattern-library">
 
-        <SurveyHeader text="Buttons" />
+        <Divider>Buttons</Divider>
         {this.renderButtons()}
 
-        <SurveyHeader text="Wells" />
+        <Divider>Wells</Divider>
         {this.renderWells()}
 
-        <SurveyHeader text="Drop Zone" />
+        <Divider text="Drop Zone" />
         <div className="row">
           <div className="col-lg-6">
             <div className="well well-dropZone">Drag and drop a module from the left</div>
           </div>
         </div>
 
-        <SurveyHeader text="Table" />
+        <Divider>Table</Divider>
         <SurveyTable surveys={surveys} />
 
-        <SurveyHeader text="Form Styles" />
+        <Divider>Form Styles</Divider>
         {this.renderForms()}
 
-        <SurveyHeader text="Brand" />
+        <Divider>Brand</Divider>
         <Brand />
 
       </div>
