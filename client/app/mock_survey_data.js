@@ -6,19 +6,15 @@ var mockSurveyData = {
   updatedAt: new Date(),
   items: [{
     "id": 35,
-    "type": "basic",
+    "type": "boolean",
     "meta": {
-      "label": "Favorite Spell",
-      "placeholder": "type favorite spell",
-      "value": ""
+      "label": "Do You Have a Favorite Spell?"
     }
   }, {
     "id": 36,
-    "type": "basic",
+    "type": "boolean",
     "meta": {
-      "label": "Favorite Character",
-      "placeholder": "type character name",
-      "value": ""
+      "label": "Do You Have a Favorite Character?"
     }
   }, {
     "id": 37,

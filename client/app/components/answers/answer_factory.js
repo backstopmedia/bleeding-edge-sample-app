@@ -1,9 +1,9 @@
-var Basic = require('./answer_basic_question');
-var MultipleChoice = require('./answer_multiple_choice_question');
+var BooleanQuestion = require('./answer_boolean_question');
+var MultipleQuestion = require('./answer_multiple_choice_question');
 
 var answerTypeMap = {
-  "basic": Basic,
-  "multiple_choice": MultipleChoice
+  "boolean": BooleanQuestion,
+  "multiple_choice": MultipleQuestion
 };
 
 var getAnswerClass = function (type) {
