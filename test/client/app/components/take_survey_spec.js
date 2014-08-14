@@ -29,14 +29,16 @@ describe("TakeSurvey", function(){
     beforeEach(function() {
       props.items = [{
         id: 1,
-        type: "basic",
+        type: "boolean",
         meta: {
+          label: "label",
           value: "test"
         }
       }, {
         id: 2,
-        type: "basic",
+        type: "boolean",
         meta: {
+          label: "label",
           value: "test"
         }
       }];

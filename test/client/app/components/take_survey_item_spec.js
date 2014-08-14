@@ -14,9 +14,10 @@ describe("Survey", function(){
   var elem = null;
   var props = {
     item: {
-      type: "basic",
+      type: "boolean",
       meta: {
-        value: "test"
+        label: "Label",
+        value: null
       }
     }
   };
@@ -48,9 +49,10 @@ describe("Survey", function(){
       props.onCompleted = callbacks.onCompleted;
       props.item = {
         id: id,
-        type: "basic",
+        type: "boolean",
         meta: {
-          value: "test"
+          label: "label",
+          value: null
         }
       };
 
@@ -63,14 +65,11 @@ describe("Survey", function(){
     });
 
     it("responds to user input", function() {
-      var newValue = "test";
-      var input = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input')[0].getDOMNode();
-      input.value = newValue;
-      TestUtils.Simulate.change(input);
-      TestUtils.Simulate.blur(input);
+      var value = "Yes";
+      elem.handleItemCompleted(value);
       expect(callbacks.onCompleted).toHaveBeenCalledWith(jasmine.objectContaining({
         id: id,
-        value: newValue
+        value: value
       }));
     });
   });
