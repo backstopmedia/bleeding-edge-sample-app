@@ -26,8 +26,10 @@ var SurveyEditor = React.createClass({
   },
 
   render: function () {
-    var questions = this.state.questions.map(function (q) {
-      return SUPPORTED_QUESTIONS[q.type](q);
+    var questions = {};
+    this.state.questions.map(function (q, i) {
+      var id = "question_" + i;
+      questions[id] = SUPPORTED_QUESTIONS[q.type](q);
     });
 
     var dropZoneEntered = '';

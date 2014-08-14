@@ -63,17 +63,18 @@ var AnswerMultipleChoiceQuestion = React.createClass({
   },
   renderChoices: function() {
     var name = this.state.id;
-    var items = [];
+    var items = {};
     this.props.choices.map(function (choice, i) {
+      var id = "choice-" + i;
       var elem = new Choice({
-        id: "choice-" + i,
+        id: id,
         name: name,
         label: choice,
         value: choice,
         checked: this.state.value === choice,
         onChanged: this.handleChanged
       });
-      items.push(elem);
+      items[id] = elem;
     }.bind(this));
     return items;
   },
