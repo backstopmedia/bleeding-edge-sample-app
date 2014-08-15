@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 var React = require("react");
 var PropsMethodMixin = require("../../../mixins/PropsMethodMixin");
-var uniqueId = require('lodash-node/modern/utilities/uniqueId');
 var AnswerRadioInput = require('./answer_radio_input');
+var uniqueId = require('lodash-node/modern/utilities/uniqueId');
 
 var AnswerMultipleChoiceQuestion = React.createClass({
   mixins: [PropsMethodMixin],
@@ -22,29 +22,26 @@ var AnswerMultipleChoiceQuestion = React.createClass({
     this.callMethodOnProps('onCompleted', value);
   },
   renderChoices: function() {
-    var name = this.state.id;
-    var items = {};
-    this.props.choices.map(function (choice, i) {
-      var elem = new AnswerRadioInput({
+    return this.props.choices.map(function(choice, i) {
+      return new AnswerRadioInput({
         id: "choice-" + i,
-        name: name,
+        name: this.state.id,
         label: choice,
         value: choice,
         checked: this.state.value === choice,
         onChanged: this.handleChanged
       });
-      items[id] = elem;
     }.bind(this));
-    return items;
   },
   render: function() {
-    var id = this.state.id;
-    return <div className="form-group">
-      <label className="survey-item-label" htmlFor={id}>{this.props.label}</label>
-      <div className="survey-item-content">
-          {this.renderChoices()}
+    return (
+      <div className="form-group">
+        <label className="survey-item-label" htmlFor={this.state.id}>{this.props.label}</label>
+        <div className="survey-item-content">
+            {this.renderChoices()}
+        </div>
       </div>
-    </div>
+    );
   }
 });
 

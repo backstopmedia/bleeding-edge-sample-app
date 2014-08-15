@@ -16,8 +16,6 @@ describe("AnswerBooleanQuestion", function(){
     spyOn(callbacks, "onCompleted");
 
     var view = new AnswerBooleanQuestion({
-      trueChoice: "Yes",
-      falseChoice: "No",
       value: null,
       onCompleted: callbacks.onCompleted
     });

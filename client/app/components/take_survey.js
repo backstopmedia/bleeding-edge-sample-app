@@ -4,10 +4,8 @@ var TakeSurveyItem = require("./take_survey_item");
 var merge = require('lodash-node/modern/objects/merge');
 
 var TakeSurvey = React.createClass({
-  getDefaultProps: function() {
-    return {
-      items: []
-    };
+  propTypes: {
+    items: React.PropTypes.array.isRequired
   },
   getInitialState: function () {
     return {
@@ -24,8 +22,8 @@ var TakeSurvey = React.createClass({
   handleClick: function() {
     console.debug('TODO: submit the survey', this.state.results);
   },
-  render:function(){
-    var items = this.props.items.map(function(item) {
+  renderItems: function() {
+    return this.props.items.map(function(item) {
       var props = merge({}, {
         key: item.id,
         item: item,
@@ -34,12 +32,16 @@ var TakeSurvey = React.createClass({
       var itemView = new TakeSurveyItem(props);
       return itemView;
     }.bind(this));
-    return <div className="survey">
-      <h1>{this.props.title}</h1>
-      <p>{this.props.description}</p>
-      {items}
-      <button className="btn btn-primary" onClick={this.handleClick}>Submit</button>
-    </div>
+  },
+  render:function(){
+    return (
+      <div className="survey">
+        <h1>{this.props.title}</h1>
+        <p>{this.props.description}</p>
+        {this.renderItems()}
+        <button className="btn btn-primary" onClick={this.handleClick}>Submit</button>
+      </div>
+    );
   }
 });
 

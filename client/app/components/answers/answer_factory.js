@@ -7,7 +7,9 @@ var answerTypeMap = {
 };
 
 var getAnswerClass = function (type) {
-  return answerTypeMap[type];
+  if(answerTypeMap[type] !== undefined) {
+    return answerTypeMap[type];
+  }
 };
 
 module.exports = {
