@@ -19,6 +19,15 @@ input[type=text]:focus, textarea:focus {
   border: 1px solid #4ABFE2;
 }
 
+input[type=text].small {
+  font-size: 12px;
+  padding: 4px 5px;
+}
+
+a {
+  cursor: pointer;
+}
+
 /* == COMPONENTS =========================================================== */
 
 /* .survey-table ----------------------------------------------------------- */
@@ -123,6 +132,10 @@ input[type=text]:focus, textarea:focus {
 }
 
 /* .btn -------------------------------------------------------------------- */
+.btn .glyphicon {
+  margin-right: 7px;
+}
+
 .btn-primary {
   color: #396a01;
   background-color: #7ed321;
@@ -198,25 +211,86 @@ input[type=text]:focus, textarea:focus {
 }
 
 
-/* .add-survey ------------------------------------------------------------- */
-.add-survey .modules li {
+/* .survey-editor ---------------------------------------------------------- */
+.survey-editor .modules li {
   margin-bottom: 15px;
 }
 
-.add-survey .actions {
+.survey-editor .actions {
   margin-top: 30px;
   text-align: right;
 }
 
-.add-survey .drop-zone {
+.survey-editor .drop-zone {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-.add-survey .drop-zone.drag-enter {
+.survey-editor .drop-zone.drag-enter {
   border: 1px solid #7ED321;
   background: #7ED321;
   color: #417505;
+}
+
+.survey-editor input[type=text] {
+  width: 100%;
+}
+
+/* .edit-question ---------------------------------------------------------- */
+.edit-question .type {
+  color: #fff;
+  background: #4abfe2;
+  margin: -20px -20px 0;
+  padding: 7px 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  position: relative;
+}
+.edit-question .type .remove {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+.edit-question label {
+  display: block;
+}
+
+/* .edit-question.multiple-choice ------------------------------------------ */
+.edit-question.edit-multiple-choice .description {
+  margin-bottom: 15px;
+}
+.edit-question.edit-multiple-choice .options {
+  margin-left: 30px;
+}
+
+.edit-question.edit-multiple-choice .options .option {
+  margin-bottom: 7px;
+}
+
+.edit-question.edit-multiple-choice .remove-option {
+  font-size: 12px;
+  color: #ddd;
+  margin-left: 7px;
+}
+.edit-question.edit-multiple-choice .remove-option:hover {
+  color: #D0021B;
+
+}
+.edit-question.edit-multiple-choice .add-option a {
+  font-size: 12px;
+  color: #7ed321;
+}
+.edit-question.edit-multiple-choice .add-option a .glyphicon {
+  margin-right: 7px;
+}
+.edit-question.edit-multiple-choice .add-option a:hover {
+  color: #396a01;
+}
+
+.edit-question.edit-multiple-choice input.small {
+  width: 200px;
 }
 
 /* .draggable -------------------------------------------------------------- */
