@@ -25,4 +25,6 @@ describe("HelloRandom", function(){
       expect(myHelloTime.getDOMNode().textContent).toBe("Fake User is an author and their github handle is fakeGithub.");
     });
   });
+
+  // TODO: show spyForClass to show that a spy was called
 });
