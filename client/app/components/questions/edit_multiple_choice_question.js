@@ -16,7 +16,7 @@ var EditMultipleChoiceQuestion = React.createClass({
   render: function () {
     var question = this.props.question;
 
-    var title = question.title || "";
+    var description = question.description || "";
     var options = question.options || [];
 
     options = options.map(function (option, i) {
@@ -38,7 +38,7 @@ var EditMultipleChoiceQuestion = React.createClass({
     return (
       <EditQuestion type='Multiple choice' className='edit-multiple-choice' onRemove={this.handleRemove}>
         <label>Description</label>
-        <input type='text' className='description' value={title} onChange={this.handleTitleChange} />
+        <input type='text' className='description' value={description} onChange={this.handleDescriptionChange} />
 
         <label>Options</label>
         <ul className='options list-unstyled'>
@@ -54,12 +54,12 @@ var EditMultipleChoiceQuestion = React.createClass({
     );
   },
 
-  handleTitleChange: function (ev) {
-    var question = merge(this.props.question, { title: ev.target.value });
+  handleDescriptionChange: function (ev) {
+    var question = merge(this.props.question, { description: ev.target.value });
     this.props.onChange(this.props.key, question);
   },
 
-  handleOptionAdd: function (ev) {
+  handleOptionAdd: function () {
     var question = this.props.question;
     var options = question.options || [];
     question.options = options.concat('');

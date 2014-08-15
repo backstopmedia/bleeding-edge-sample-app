@@ -124,4 +124,42 @@ describe("components/survey_editor", function (){
       });
     });
   });
+
+  describe('#handleQuestionChange', function () {
+    beforeEach(function () {
+      subject.setState({
+        questions: [
+          { type: 'essay', description: 'who is superman?' }
+        ]
+      });
+
+      spyOn( subject, 'setState' );
+    });
+
+    it('updates the question', function () {
+      subject.handleQuestionChange(0, { type: 'essay', description: 'who is batman?' });
+      expect( subject.setState ).toHaveBeenCalledWith({
+        questions: [{ type: 'essay', description: 'who is batman?' }]
+      });
+    });
+  });
+
+  describe('#handeQuestionRemove', function () {
+    beforeEach(function () {
+      subject.setState({
+        questions: [
+          { type: 'essay', description: 'who is superman?' }
+        ]
+      });
+
+      spyOn( subject, 'setState' );
+    });
+
+    it('removes the question', function () {
+      subject.handleQuestionRemove(0);
+      expect( subject.setState ).toHaveBeenCalledWith({
+        questions: []
+      });
+    });
+  });
 });

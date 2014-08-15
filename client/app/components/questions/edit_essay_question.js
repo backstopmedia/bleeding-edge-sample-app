@@ -14,18 +14,18 @@ var EditEssayQuestion = React.createClass({
   },
 
   render: function () {
-    var title = this.props.question.title || "";
+    var description = this.props.question.description || "";
 
     return (
       <EditQuestion type='Essay' onRemove={this.handleRemove}>
         <label>Description</label>
-        <input type='text' className='description' value={title} onChange={this.handleChange} />
+        <input type='text' className='description' value={description} onChange={this.handleChange} />
       </EditQuestion>
     );
   },
 
   handleChange: function (ev) {
-    var question = merge(this.props.question, { title: ev.target.value });
+    var question = merge(this.props.question, { description: ev.target.value });
     this.props.onChange(this.props.key, question);
   },
 
