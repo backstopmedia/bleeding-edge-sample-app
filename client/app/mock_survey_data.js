@@ -27,6 +27,12 @@ var mockSurveyData = {
         "Port-key"
       ]
     }
+  }, {
+    "id": 38,
+    "type": "essay",
+    "meta": {
+      "label": "Which books was your favorite and why?"
+    }
   }]
 };
 
