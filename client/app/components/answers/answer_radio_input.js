@@ -31,24 +31,26 @@ var AnswerRadioInput = React.createClass({
     }
   },
   handleChanged: function (e) {
-    var checked = e.target.checked
+    var checked = e.target.checked;
     this.setState({checked: checked});
     if(checked) {
       this.callMethodOnProps('onChanged', this.props.value);
     }
   },
   render: function () {
-    return <div className="radio">
-      <label>
-        <input type="radio"
-          name={this.props.name}
-          id={this.props.id}
-          value={this.props.value}
-          checked={this.state.checked}
-          onChange={this.handleChanged} />
-        {this.props.label}
-      </label>
-    </div>;
+    return (
+      <div className="radio">
+        <label>
+          <input type="radio"
+            name={this.props.name}
+            id={this.props.id}
+            value={this.props.value}
+            checked={this.state.checked}
+            onChange={this.handleChanged} />
+          {this.props.label}
+        </label>
+      </div>
+    );
   }
 });
 

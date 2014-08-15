@@ -12,11 +12,12 @@ var renderElem = function(props) {
 describe("TakeSurvey", function(){
 
   var elem = null;
-  var props = {};
 
   describe("rendering", function() {
     beforeEach(function() {
-      elem = renderElem(props);
+      elem = renderElem({
+        items: []
+      });
     });
 
     it("should render", function(){
@@ -26,6 +27,8 @@ describe("TakeSurvey", function(){
   });
 
   describe("items", function() {
+    var props = {};
+
     beforeEach(function() {
       props.items = [{
         id: 1,
