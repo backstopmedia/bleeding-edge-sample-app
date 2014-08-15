@@ -236,6 +236,10 @@ input[type=text]:focus, textarea:focus {
   top: 8px;
 }
 
+.edit-question label {
+  display: block;
+}
+
 /* .draggable -------------------------------------------------------------- */
 .draggable {
   cursor: move;

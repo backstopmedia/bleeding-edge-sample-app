@@ -18,7 +18,7 @@ var EditEssayQuestion = React.createClass({
 
     return (
       <EditQuestion title='Essay' onRemove={this.handleRemove}>
-        <div><label>Enter question</label></div>
+        <label>Enter question</label>
         <input type='text' value={title} onChange={this.handleChange} />
       </EditQuestion>
     );

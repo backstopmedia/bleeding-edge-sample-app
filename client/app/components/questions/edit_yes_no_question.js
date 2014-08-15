@@ -19,7 +19,7 @@ var EditYesNoQuestion = React.createClass({
 
     return (
       <EditQuestion title='Yes / No' onRemove={this.handleRemove}>
-        <div><label>Enter question</label></div>
+        <label>Enter question</label>
         <input type='text' value={title} onChange={this.handleChange} />
       </EditQuestion>
     );
