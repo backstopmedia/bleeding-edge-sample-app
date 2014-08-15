@@ -198,25 +198,42 @@ input[type=text]:focus, textarea:focus {
 }
 
 
-/* .add-survey ------------------------------------------------------------- */
-.add-survey .modules li {
+/* .survey-editor ---------------------------------------------------------- */
+.survey-editor .modules li {
   margin-bottom: 15px;
 }
 
-.add-survey .actions {
+.survey-editor .actions {
   margin-top: 30px;
   text-align: right;
 }
 
-.add-survey .drop-zone {
+.survey-editor .drop-zone {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-.add-survey .drop-zone.drag-enter {
+.survey-editor .drop-zone.drag-enter {
   border: 1px solid #7ED321;
   background: #7ED321;
   color: #417505;
+}
+
+/* .edit-question ---------------------------------------------------------- */
+.edit-question .title {
+  color: #fff;
+  background: #4abfe2;
+  margin: -20px -20px 0;
+  padding: 7px 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  position: relative;
+}
+.edit-question .title .remove {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 8px;
 }
 
 /* .draggable -------------------------------------------------------------- */

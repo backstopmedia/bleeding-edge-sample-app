@@ -12,9 +12,9 @@ var EditMultipleChoiceQuestion = require('./questions/edit_multiple_choice_quest
 var EditEssayQuestion = require('./questions/edit_essay_question');
 
 var SUPPORTED_QUESTIONS = {
-  'yes/no': EditYesNoQuestion,
-  'multiple-choice' : EditMultipleChoiceQuestion,
-  'essay': EditEssayQuestion
+  'yes/no':           EditYesNoQuestion,
+  'multiple-choice':  EditMultipleChoiceQuestion,
+  'essay':            EditEssayQuestion
 };
 
 var SurveyEditor = React.createClass({
@@ -26,11 +26,14 @@ var SurveyEditor = React.createClass({
   },
 
   render: function () {
-    var questions = {};
-    this.state.questions.map(function (q, i) {
-      var id = "question_" + i;
-      questions[id] = SUPPORTED_QUESTIONS[q.type](q);
-    });
+    var questions = this.state.questions.map(function (q, i) {
+      return SUPPORTED_QUESTIONS[q.type]({
+        key: i,
+        onChange: this.handleQuestionChange,
+        onRemove: this.handleQuestionRemove,
+        question: q
+      });
+    }.bind(this));
 
     var dropZoneEntered = '';
     if (this.state.dropZoneEntered) {
@@ -38,7 +41,7 @@ var SurveyEditor = React.createClass({
     }
 
     return (
-      <div className='add-survey'>
+      <div className='survey-editor'>
         <div className='row'>
           <aside className='sidebar col-md-3'>
             <h2>Modules</h2>
@@ -93,6 +96,18 @@ var SurveyEditor = React.createClass({
       questions: questions,
       dropZoneEntered: false
     });
+  },
+
+  handleQuestionChange: function (key, newQuestion) {
+    var questions = this.state.questions;
+    questions[key] = newQuestion;
+    this.setState({ questions: questions });
+  },
+
+  handleQuestionRemove: function (key) {
+    var questions = this.state.questions;
+    questions.splice(key, 1);
+    this.setState({ questions: questions });
   }
 
 });
