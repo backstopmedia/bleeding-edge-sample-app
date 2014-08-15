@@ -11,7 +11,7 @@ describe("components/main_nav", function () {
 
   beforeEach(function () {
     subject = TestUtils.renderIntoDocument(
-      <MainNav currentUri='/add_survey' />
+      <MainNav />
     );
   });
 
@@ -28,46 +28,5 @@ describe("components/main_nav", function () {
       expect( item.props.children ).toBe( 'Add Survey' );
     });
 
-    describe('when currentUri is "/"', function () {
-      beforeEach(function () {
-        subject.setProps({ currentUri: '/' });
-      });
-
-      it('marks "All Surveys" as active', function () {
-        var currentItem = TestUtils.findRenderedDOMComponentWithClass(
-          subject,
-          'active'
-        );
-
-        var currentItemLink = TestUtils.findRenderedDOMComponentWithTag(
-          currentItem,
-          'a'
-        );
-
-        expect( currentItemLink.props.href ).toBe( '/' );
-        expect( currentItemLink.props.children ).toBe( 'All Surveys' );
-      });
-    });
-
-    describe('when currentUri is "/add_survey"', function () {
-      beforeEach(function () {
-        subject.setProps({ currentUri: '/add_survey' });
-      });
-
-      it('marks "Add Survey" as active', function () {
-        var currentItem = TestUtils.findRenderedDOMComponentWithClass(
-          subject,
-          'active'
-        );
-
-        var currentItemLink = TestUtils.findRenderedDOMComponentWithTag(
-          currentItem,
-          'a'
-        );
-
-        expect( currentItemLink.props.href ).toBe( '/add_survey' );
-        expect( currentItemLink.props.children ).toBe( 'Add Survey' );
-      });
-    });
   });
 });

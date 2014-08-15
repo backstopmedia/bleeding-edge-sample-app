@@ -5,69 +5,49 @@ body {
   color: #696d75;
 }
 
-/* == BUTTONS ============================================================== */
-
-.btn-primary {
-  color: #396a01;
-  background-color: #7ed321;
-  border-color: #7ed321;
+input[type=text], textarea {
+  border-radius: 4px;
+  border: 1px solid #BDBDBD;
+  background: #fff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  padding: 8px 10px;
 }
 
-.btn-primary:active, 
-.btn-primary.active, 
-.open>.dropdown-toggle.btn-primary {
-  color: #396a01;
-  background-color: #7ed321;
-  border-color: #7ed321;
+input[type=text]:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #4ABFE2;
 }
 
-.btn-primary:hover, 
-.btn-primary:focus, 
-.btn-primary:active, 
-.btn-primary.active, 
-.open>.dropdown-toggle.btn-primary {
-  color: #396a01;
-  background-color: #7ed321;
-  border-color: #7ed321;
+/* == COMPONENTS =========================================================== */
+
+/* .survey-table ----------------------------------------------------------- */
+.survey-table > thead > tr > th {
+  border: none;
+  color: #c6c6c6;
+  font-weight: normal;
 }
 
-.btn-secondary {
-  color: #fff;
-  background-color: #4abfe2;
-  border-color: #4abfe2;
+.survey-table > tbody > tr > td {
+  border: none;
 }
 
-.btn-secondary:active, 
-.btn-secondary.active, 
-.open>.dropdown-toggle.btn-secondary {
-  color: #fff;
-  background-color: #4abfe2;
-  border-color: #4abfe2;
+.survey-table .btn-editSurvey {
+  color: #f5a623;
 }
 
-.btn-secondary:hover, 
-.btn-secondary:focus, 
-.btn-secondary:active, 
-.btn-secondary.active, 
-.open>.dropdown-toggle.btn-secondary {
-  color: #fff;
-  background-color: #4abfe2;
-  border-color: #4abfe2;
+.survey-table .btn-deleteSurvey {
+  color: red;
 }
 
-.btn-secondary .glyphicon {
-  color: #4195af;
-}
-
-/* == SURVEY HEADER ======================================================== */
-
-.survey-header {
+/* .divider ---------------------------------------------------------------- */
+.divider {
   width: 100%;
   position: relative;
   margin: 24px 0;
 }
 
-.survey-header h2 {
+.divider h2 {
   background: white;
   position: relative;
   float: left;
@@ -76,7 +56,7 @@ body {
   z-index: 1;
 }
 
-.survey-header hr {
+.divider hr {
   position: absolute;
   top: 50%;
   height: 1px;
@@ -86,6 +66,7 @@ body {
   margin: 0;
 }
 
+/* .survey-item -------------------------------------------------------------*/
 .survey-item {
   margin: 48px 0;
 }
@@ -99,7 +80,7 @@ body {
   margin-left: 24px;
 }
 
-/* FORMS =================================================================== */
+/* .form-control ------------------------------------------------------------*/
 
 .form-control:focus {
   border-color: #4abfe2;
@@ -108,18 +89,17 @@ body {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(74, 191, 226, 0.6);
 }
 
-/* == WELLS ================================================================ */
-
-.well-active {
+/* .well ------------------------------------------------------------------- */
+.well.well-active {
   background: #fff;
-  border: 1px solid #4abfe2;
+  border: 2px solid #4abfe2;
 }
 
-.well-active label {
+.well.well-active label {
   color: #4abfe2;
 }
 
-.well .close {
+.well.well .close {
   font-size: 12px;
   background: #aaa;
   border-radius: 100%;
@@ -130,11 +110,11 @@ body {
   margin-right: -12px;
 }
 
-.well .close:focus {
+.well.well .close:focus {
   outline: none;
 }
 
-.well-dropZone {
+.well.well-drop-zone {
   background: #f5fcf2;
   border-color: #b5b5b5;
   border-style: dashed;
@@ -142,32 +122,65 @@ body {
   color: #b5b5b5;
 }
 
-/* == TABLES =============================================================== */
-
-.survey-table {
-
+/* .btn -------------------------------------------------------------------- */
+.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
 }
 
-.survey-table > thead > tr > th {
-  border: none;
-  color: #c6c6c6;
-  font-weight: normal;
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
 }
 
-.survey-table > tbody > tr > td {
-  border: none;
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+  color: #396a01;
+  background-color: #7ed321;
+  border-color: #7ed321;
 }
 
-.btn-editSurvey {
-  color: #f5a623;
+.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
 }
 
-.btn-deleteSurvey {
-  color: red;
+.btn-secondary:active,
+.btn-secondary.active,
+.open>.dropdown-toggle.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
 }
 
-/* == BRAND ================================================================ */
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open>.dropdown-toggle.btn-secondary {
+  color: #fff;
+  background-color: #4abfe2;
+  border-color: #4abfe2;
+}
 
+.btn-secondary .glyphicon {
+  color: #4195af;
+}
+
+/* .sidebar ---------------------------------------------------------------- */
+.sidebar {
+  background: #F2F2F2;
+}
+
+/* .brand ------------------------------------------------------------------- */
 .brand {
   margin: 24px;
   line-height: 1;
@@ -184,12 +197,38 @@ body {
   font-size: 28px;
 }
 
-/* == MODULES ============================================================== */
+
+/* .add-survey ------------------------------------------------------------- */
+.add-survey .modules li {
+  margin-bottom: 15px;
+}
+
+.add-survey .actions {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.add-survey .drop-zone {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.add-survey .drop-zone.drag-enter {
+  border: 1px solid #7ED321;
+  background: #7ED321;
+  color: #417505;
+}
+
+/* .draggable -------------------------------------------------------------- */
+.draggable {
+  cursor: move;
+}
 
 /* .main-header ------------------------------------------------------------ */
 .main-header {
   background: #696D75;
   border: 0;
+  margin-bottom: 0;
 }
 
 .main-header a {
@@ -213,12 +252,11 @@ body {
   border-bottom: 5px solid #A9D0DC;
 }
 
-.main-nav .active a {
+.main-nav a.active {
   border-bottom: 5px solid #4ABFE2;
   font-weight: bold;
 }
 
-.main-nav .active a:hover {
+.main-nav a.active:hover {
   border-bottom: 5px solid #4ABFE2;
 }
-

@@ -1,33 +1,16 @@
 /** @jsx React.DOM */
 
-var React = require("react/addons");
-var classSet = React.addons.classSet;
-
-var NAV_ITEMS = {
-  'All Surveys': '/',
-  'Add Survey': '/add_survey'
-};
+var React = require("react");
+var Link = require('react-router').Link;
 
 var MainNav = React.createClass({
-  propTypes: {
-    currentUri: React.PropTypes.string.isRequired
-  },
-
   render: function () {
-    var currentUri = this.props.currentUri;
-
-    var items = Object.keys(NAV_ITEMS).map(function (key, i) {
-      var uri = NAV_ITEMS[key];
-      var className = classSet({
-        'active': uri === currentUri
-      });
-
-      return <li className={className}><a key={i} href={uri}>{key}</a></li>;
-    });
-
     return (
       <nav className='main-nav' role='navigation'>
-        <ul className='nav navbar-nav'>{items}</ul>
+        <ul className='nav navbar-nav'>
+          <li><Link to="list">All Surveys</Link></li>
+          <li><Link to="add">Add Survey</Link></li>
+        </ul>
       </nav>
     );
   }
