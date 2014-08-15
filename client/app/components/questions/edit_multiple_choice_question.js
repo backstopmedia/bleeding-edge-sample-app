@@ -28,7 +28,7 @@ var EditMultipleChoiceQuestion = React.createClass({
             value={option}
             onChange={this.handleOptionChange.bind(this, i)}
           />
-          <a className='remove' onClick={this.handleOptionRemove.bind(this, i)}>
+          <a className='remove-option' onClick={this.handleOptionRemove.bind(this, i)}>
             <span className='glyphicon glyphicon-remove'/>
           </a>
         </li>
@@ -36,9 +36,9 @@ var EditMultipleChoiceQuestion = React.createClass({
     }.bind(this));
 
     return (
-      <EditQuestion title='Multiple choice' onRemove={this.handleRemove}>
-        <label>Enter question</label>
-        <input type='text' value={title} onChange={this.handleTitleChange} />
+      <EditQuestion type='Multiple choice' className='edit-multiple-choice' onRemove={this.handleRemove}>
+        <label>Description</label>
+        <input type='text' className='description' value={title} onChange={this.handleTitleChange} />
 
         <label>Options</label>
         <ul className='options list-unstyled'>
@@ -46,6 +46,7 @@ var EditMultipleChoiceQuestion = React.createClass({
           <li className='add-option'>
             <a onClick={this.handleOptionAdd}>
               <span className='glyphicon glyphicon-plus'/>
+              Add option
             </a>
           </li>
         </ul>

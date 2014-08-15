@@ -18,9 +18,9 @@ var EditYesNoQuestion = React.createClass({
     var title = this.props.question.title || "";
 
     return (
-      <EditQuestion title='Yes / No' onRemove={this.handleRemove}>
-        <label>Enter question</label>
-        <input type='text' value={title} onChange={this.handleChange} />
+      <EditQuestion type='Yes / No' onRemove={this.handleRemove}>
+        <label>Description</label>
+        <input type='text' className='description' value={title} onChange={this.handleChange} />
       </EditQuestion>
     );
   },
