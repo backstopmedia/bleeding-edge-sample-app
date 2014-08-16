@@ -15,7 +15,7 @@ module.exports = function(config) {
     files: [
       'test/client/support/phantomjs-shims.js',
       'client/**/*.js',
-      'test/**/*.js'
+      'test/client/**/*.js'
 //      'server/**/*.js'
     ],
 
