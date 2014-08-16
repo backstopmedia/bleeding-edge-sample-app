@@ -215,6 +215,10 @@ a {
 .survey-editor .modules li {
   margin-bottom: 15px;
 }
+.survey-editor .modules .btn {
+  width: 100%;
+  text-align: left;
+}
 
 .survey-editor .actions {
   margin-top: 30px;
@@ -232,7 +236,7 @@ a {
   color: #417505;
 }
 
-.survey-editor input[type=text] {
+.survey-editor input[type=text], .survey-editor textarea {
   width: 100%;
 }
 

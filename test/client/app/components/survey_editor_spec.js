@@ -74,6 +74,16 @@ describe("components/survey_editor", function (){
     });
   });
 
+  describe('#handleFormChange', function () {
+    it('updates the form field', function () {
+      spyOn( subject, 'setState' );
+      subject.handleFormChange({ title: 'Superhero Survey' });
+      expect( subject.setState ).toHaveBeenCalledWith({
+        title: 'Superhero Survey'
+      });
+    });
+  });
+
   describe('#handleDragOver', function () {
     it('calls preventDefault to work around a chrome bug', function () {
       var ev = {

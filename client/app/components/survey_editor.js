@@ -21,6 +21,8 @@ var SurveyEditor = React.createClass({
   getInitialState: function () {
     return {
       dropZoneEntered: false,
+      title: '',
+      introduction: '',
       questions: []
     };
   },
@@ -49,7 +51,11 @@ var SurveyEditor = React.createClass({
           </aside>
 
           <div className='survey-canvas col-md-9'>
-            <SurveyForm />
+            <SurveyForm
+              title={this.state.title}
+              introduction={this.state.introduction}
+              onChange={this.handleFormChange}
+            />
 
             <Divider>Questions</Divider>
             {questions}
@@ -71,6 +77,10 @@ var SurveyEditor = React.createClass({
         </div>
       </div>
     );
+  },
+
+  handleFormChange: function (formData) {
+    this.setState(formData);
   },
 
   handleDragOver: function (ev) {
