@@ -5,7 +5,8 @@ var merge = require('lodash-node/modern/objects/merge');
 
 var TakeSurvey = React.createClass({
   propTypes: {
-    items: React.PropTypes.array.isRequired
+    items: React.PropTypes.array.isRequired,
+    onSave: React.PropTypes.func.isRequired
   },
   getInitialState: function () {
     return {
@@ -20,7 +21,9 @@ var TakeSurvey = React.createClass({
     });
   },
   handleClick: function() {
-    console.debug('TODO: submit the survey', this.state.results);
+    // We could dispatch to the store here for saving or propagate
+    // the save up to the controller-view as shown here.
+    this.props.onSave(this.state.results);
   },
   renderItems: function() {
     return this.props.items.map(function(item) {
