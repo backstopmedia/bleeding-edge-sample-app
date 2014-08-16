@@ -18,7 +18,7 @@ var EditYesNoQuestion = React.createClass({
     var description = this.props.question.description || "";
 
     return (
-      <EditQuestion type='Yes / No' onRemove={this.handleRemove}>
+      <EditQuestion type='yes_no' onRemove={this.handleRemove}>
         <label>Description</label>
         <input type='text' className='description' value={description} onChange={this.handleChange} />
       </EditQuestion>

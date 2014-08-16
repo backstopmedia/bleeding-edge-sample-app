@@ -51,11 +51,11 @@ describe("components/survey_editor", function (){
         subject.setState({
           questions: [
             {
-              type: 'yes/no',
+              type: 'yes_no',
               question: 'Is Clark Kent, Superman?'
             },
             {
-              type: 'multiple-choice',
+              type: 'multiple_choice',
               question: 'Which actor did not portray Batman?',
               choices: ['Christian Bale', 'Val Kilmer', 'Adam West', 'Tobey Maguire']
             }
@@ -123,13 +123,13 @@ describe("components/survey_editor", function (){
       subject.handleDrop({
         dataTransfer: {
           getData: function () {
-            return 'yes/no';
+            return 'yes_no';
           }
         }
       });
 
       expect( subject.setState ).toHaveBeenCalledWith({
-        questions: [{ type: 'yes/no' }],
+        questions: [{ type: 'yes_no' }],
         dropZoneEntered: false
       });
     });

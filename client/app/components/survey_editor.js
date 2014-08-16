@@ -12,9 +12,9 @@ var EditMultipleChoiceQuestion = require('./questions/edit_multiple_choice_quest
 var EditEssayQuestion = require('./questions/edit_essay_question');
 
 var SUPPORTED_QUESTIONS = {
-  'yes/no':           EditYesNoQuestion,
-  'multiple-choice':  EditMultipleChoiceQuestion,
-  'essay':            EditEssayQuestion
+  yes_no:           EditYesNoQuestion,
+  multiple_choice:  EditMultipleChoiceQuestion,
+  essay:            EditEssayQuestion
 };
 
 var SurveyEditor = React.createClass({
@@ -71,7 +71,7 @@ var SurveyEditor = React.createClass({
             </div>
 
             <div className='actions'>
-              <button className="btn btn-lg btn-primary btn-save">Save</button>
+              <button className="btn btn-lg btn-primary btn-save" onClick={this.handleSaveClicked}>Save</button>
             </div>
           </div>
         </div>
@@ -118,6 +118,10 @@ var SurveyEditor = React.createClass({
     var questions = this.state.questions;
     questions.splice(key, 1);
     this.setState({ questions: questions });
+  },
+
+  handleSaveClicked: function (ev) {
+    console.log('TODO: handle save of questions', this.state.questions);
   }
 
 });

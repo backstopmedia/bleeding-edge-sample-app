@@ -2,10 +2,20 @@
 
 var React = require('react');
 
+var typeLabels = {
+  yes_no: 'Yes / No',
+  multiple_choice: 'Multiple Choice',
+  essay: 'Essay'
+};
+
 var EditQuestion = React.createClass({
   propTypes: {
     type: React.PropTypes.string.isRequired,
     onRemove: React.PropTypes.func.isRequired
+  },
+
+  getTypeLabel: function () {
+    return typeLabels[this.props.type];
   },
 
   render: function () {
@@ -14,7 +24,7 @@ var EditQuestion = React.createClass({
     return (
       <div className={className}>
         <div className='type'>
-          {this.props.type}
+          {this.getTypeLabel()}
           <a className='remove' onClick={this.handleRemove}>
             <span className='glyphicon glyphicon-remove'/>
           </a>
@@ -25,7 +35,7 @@ var EditQuestion = React.createClass({
   },
 
   handleRemove: function () {
-    if (confirm('Are you sure you want to delete this ' + this.props.type)) {
+    if (confirm('Are you sure you want to delete this ' + this.getTypeLabel())) {
       this.props.onRemove(this.props.key);
     }
   }

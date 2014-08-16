@@ -17,7 +17,7 @@ var EditEssayQuestion = React.createClass({
     var description = this.props.question.description || "";
 
     return (
-      <EditQuestion type='Essay' onRemove={this.handleRemove}>
+      <EditQuestion type='essay' onRemove={this.handleRemove}>
         <label>Description</label>
         <input type='text' className='description' value={description} onChange={this.handleChange} />
       </EditQuestion>

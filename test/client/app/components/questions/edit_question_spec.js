@@ -12,7 +12,7 @@ describe("components/questions/edit_question", function (){
     onRemoveSpy = jasmine.createSpy();
 
     subject = TestUtils.renderIntoDocument(
-      <EditQuestion type='Essay' onRemove={onRemoveSpy}>
+      <EditQuestion type='essay' onRemove={onRemoveSpy}>
         <div className='child'/>
       </EditQuestion>
     );

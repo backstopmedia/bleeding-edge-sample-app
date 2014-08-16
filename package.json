@@ -46,6 +46,7 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4",
-    "react-tools": "^0.11.1"
+    "react-tools": "^0.11.1",
+    "jasmine-react-helpers": "^0.2.0"
   }
 }
