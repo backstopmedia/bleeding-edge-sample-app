@@ -36,7 +36,7 @@ var EditMultipleChoiceQuestion = React.createClass({
     }.bind(this));
 
     return (
-      <EditQuestion type='Multiple choice' className='edit-multiple-choice' onRemove={this.handleRemove}>
+      <EditQuestion type='multiple_choice' className='edit-multiple-choice' onRemove={this.handleRemove}>
         <label>Description</label>
         <input type='text' className='description' value={description} onChange={this.handleDescriptionChange} />
 

@@ -2,9 +2,9 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var AnswerBooleanQuestion = require("../../../../../client/app/components/answers/answer_boolean_question");
+var AnswerYesNoQuestion = require("../../../../../client/app/components/answers/answer_yes_no_question");
 
-describe("AnswerBooleanQuestion", function(){
+describe("AnswerYesNoQuestion", function(){
 
   var elem = null;
   var callbacks = {};
@@ -15,7 +15,7 @@ describe("AnswerBooleanQuestion", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new AnswerBooleanQuestion({
+    var view = new AnswerYesNoQuestion({
       value: null,
       onCompleted: callbacks.onCompleted
     });

@@ -6,13 +6,13 @@ var mockSurveyData = {
   updatedAt: new Date(),
   items: [{
     "id": 35,
-    "type": "boolean",
+    "type": "yes_no",
     "meta": {
       "label": "Do You Have a Favorite Spell?"
     }
   }, {
     "id": 36,
-    "type": "boolean",
+    "type": "yes_no",
     "meta": {
       "label": "Do You Have a Favorite Character?"
     }
