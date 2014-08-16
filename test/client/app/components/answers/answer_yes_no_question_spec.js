@@ -29,7 +29,9 @@ describe("AnswerYesNoQuestion", function(){
   });
 
   it("responds to user input", function() {
-    elem.handleChanged("Yes");
+    var input = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input')[0].getDOMNode();
+    input.checked = "checked";
+    TestUtils.Simulate.change(input);
     expect(callbacks.onCompleted).toHaveBeenCalledWith("Yes");
   });
 
