@@ -4,7 +4,7 @@ var PropsMethodMixin = require("../../../mixins/PropsMethodMixin");
 var AnswerRadioInput = require('./answer_radio_input');
 var uniqueId = require('lodash-node/modern/utilities/uniqueId');
 
-var AnswerBooleanQuestion = React.createClass({
+var AnswerYesNoQuestion = React.createClass({
   mixins: [PropsMethodMixin],
   propTypes: {
     value: React.PropTypes.string.isRequired,
@@ -53,4 +53,4 @@ var AnswerBooleanQuestion = React.createClass({
   }
 });
 
-module.exports = AnswerBooleanQuestion;
+module.exports = AnswerYesNoQuestion;

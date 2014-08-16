@@ -14,7 +14,7 @@ describe("Survey", function(){
   var elem = null;
   var props = {
     item: {
-      type: "boolean",
+      type: "yes_no",
       meta: {
         label: "Label",
         value: null
@@ -49,7 +49,7 @@ describe("Survey", function(){
       props.onCompleted = callbacks.onCompleted;
       props.item = {
         id: id,
-        type: "boolean",
+        type: "yes_no",
         meta: {
           label: "label",
           value: null

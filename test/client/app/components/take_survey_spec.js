@@ -32,14 +32,14 @@ describe("TakeSurvey", function(){
     beforeEach(function() {
       props.items = [{
         id: 1,
-        type: "boolean",
+        type: "yes_no",
         meta: {
           label: "label",
           value: "test"
         }
       }, {
         id: 2,
-        type: "boolean",
+        type: "yes_no",
         meta: {
           label: "label",
           value: "test"
