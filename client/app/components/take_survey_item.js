@@ -26,7 +26,7 @@ var TakeSurveyItem = React.createClass({
     var props = merge({}, this.props.item.meta, {
       onCompleted: this.handleItemCompleted
     });
-    return new ItemComponentClass(props);
+    return ItemComponentClass(props);
   },
   render:function() {
     return <div className="survey-item">

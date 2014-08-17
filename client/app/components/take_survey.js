@@ -32,7 +32,7 @@ var TakeSurvey = React.createClass({
         item: item,
         onCompleted: this.handleItemCompleted
       });
-      var itemView = new TakeSurveyItem(props);
+      var itemView = TakeSurveyItem(props);
       return itemView;
     }.bind(this));
   },

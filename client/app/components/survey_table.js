@@ -17,7 +17,7 @@ var SurveyTable = React.createClass({
 
     var rows = this.props.surveys.map(function(item, i) {
       item.key = item.key || i;
-      return new TableRow(item);
+      return TableRow(item);
     });
 
     headers.map(function(item) {

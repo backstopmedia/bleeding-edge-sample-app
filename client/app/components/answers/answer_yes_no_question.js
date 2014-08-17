@@ -13,7 +13,7 @@ var AnswerYesNoQuestion = React.createClass({
     var props = merge({}, this.props, {
       choices: choices
     });
-    return new AnswerMultipleChoiceQuestion(props);
+    return AnswerMultipleChoiceQuestion(props);
   }
 });
 

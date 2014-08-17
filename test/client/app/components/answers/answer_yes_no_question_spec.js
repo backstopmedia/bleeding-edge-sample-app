@@ -15,7 +15,7 @@ describe("AnswerYesNoQuestion", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new AnswerYesNoQuestion({
+    var view = AnswerYesNoQuestion({
       value: null,
       onCompleted: callbacks.onCompleted
     });

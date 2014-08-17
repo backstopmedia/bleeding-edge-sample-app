@@ -16,7 +16,7 @@ describe("AnswerMultipleChoiceQuestion", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new AnswerMultipleChoiceQuestion({
+    var view = AnswerMultipleChoiceQuestion({
       onCompleted: callbacks.onCompleted,
       choices: choices
     });

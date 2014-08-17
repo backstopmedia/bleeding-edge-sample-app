@@ -5,7 +5,7 @@ var TestUtils = React.addons.TestUtils;
 var TakeSurveyItem = require("../../../../client/app/components/take_survey_item");
 
 var renderElem = function(props) {
-  var view = new TakeSurveyItem(props);
+  var view = TakeSurveyItem(props);
   return TestUtils.renderIntoDocument(view);
 };
 
