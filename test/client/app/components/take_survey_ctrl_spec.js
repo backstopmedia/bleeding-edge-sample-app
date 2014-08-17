@@ -6,7 +6,7 @@ var TakeSurvey = require("../../../../client/app/components/take_survey");
 var TakeSurveyCtrl = require("../../../../client/app/components/take_survey_ctrl");
 
 var renderElem = function(props) {
-  var view = new TakeSurveyCtrl(props);
+  var view = TakeSurveyCtrl(props);
   return TestUtils.renderIntoDocument(view);
 };
 

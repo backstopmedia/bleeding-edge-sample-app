@@ -12,7 +12,7 @@ describe("AnswerEssayQuestion", function(){
   beforeEach(function() {
     onCompleted = jasmine.createSpy();
 
-    var view = new AnswerEssayQuestion({
+    var view = AnswerEssayQuestion({
       label: 'test',
       value: null,
       onCompleted: onCompleted

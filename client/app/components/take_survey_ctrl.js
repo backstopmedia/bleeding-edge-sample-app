@@ -25,7 +25,7 @@ var TakeSurveyCtrl = React.createClass({
     var props = merge({}, this.state.survey, {
       onSave: this.handleSurveySave
     });
-    return new TakeSurvey(props);
+    return TakeSurvey(props);
   }
 });
 

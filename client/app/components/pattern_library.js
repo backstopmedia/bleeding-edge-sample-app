@@ -41,7 +41,7 @@ var PatternLibrary = React.createClass({
   renderHeaders: function() {
     return [1,2,3,4,5,6].map(function(i) {
       var tagName = "h" + i;
-      return new React.DOM[tagName]({}, "Header " + tagName);
+      return React.DOM[tagName]({}, "Header " + tagName);
     });
   },
 
