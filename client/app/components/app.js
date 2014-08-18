@@ -20,6 +20,20 @@ Dispatcher.register(function(payload) {
 });
 
 var App = React.createClass({
+  handleChange: function() {
+    SurveyStore.listSurveys(function(surveys) {
+      console.debug("TODO: update app state based on surveys returned by SurveyStore.listSurveys (once it actually returns some)");
+    });
+  },
+
+  componentDidMount: function() {
+    SurveyStore.addChangeListener(this.handleChange);
+  },
+
+  componentWillUnmount: function() {
+    SurveyStore.removeChangeListener(this.handleChange);
+  },
+
   render: function () {
     return (
       <div className='app'>
