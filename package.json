@@ -27,6 +27,7 @@
     "browserify": "^4.2.3",
     "es5-shim": "^4.0.1",
     "es6-promise": "^1.0.0",
+    "event-emitter": "^0.3.1",
     "express": "^4.7.4",
     "lodash-node": "^2.4.1",
     "merge": "^1.1.3",
