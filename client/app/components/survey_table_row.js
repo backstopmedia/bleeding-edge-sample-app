@@ -1,45 +1,51 @@
 /** @jsx React.DOM */
 
 var React = require("react");
-var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var Link = require('react-router').Link;
 
-function formatDate(date) {
-  return MONTHS[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
-}
+var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+var formatDate = function (date) {
+  return MONTHS[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+};
 
 function integerWithThousandsSeparator(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 var SurveyTableRow = React.createClass({
   propTypes: {
-    id: React.PropTypes.string.isRequired,
-    uri: React.PropTypes.string.isRequired,
-    editUri: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    publishedDate: React.PropTypes.instanceOf(Date).isRequired,
-    modifiedDate: React.PropTypes.instanceOf(Date).isRequired,
-    total: React.PropTypes.number.isRequired,
-    activity: React.PropTypes.array.isRequired
+   survey: React.PropTypes.shape({
+      id: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      publishedDate: React.PropTypes.instanceOf(Date).isRequired,
+      modifiedDate: React.PropTypes.instanceOf(Date).isRequired,
+      activity: React.PropTypes.array.isRequired
+    }).isRequired
   },
-  handleArchiveClick: function (event) {
-    console.debug("TODO: dispatch the archive message to the store", this.props.id);
-  },
+
   render: function() {
+    var survey = this.props.survey;
+
+    var total = survey.activity.reduce(function (memo, n) {
+      return memo + n;
+    }, 0);
+
     return (
       <tr>
-        <td><a href={this.props.uri}>{this.props.title}</a></td>
-        <td>{formatDate(this.props.publishedDate)}</td>
-        <td>{formatDate(this.props.modifiedDate)}</td>
-        <td>{integerWithThousandsSeparator(this.props.total)}</td>
-        <td></td>
         <td>
-          <a href={this.props.editUri} className="btn btn-link btn-editSurvey">
+          <Link to='take' surveyId={survey.id} className='title'>
+            {survey.title}
+          </Link>
+        </td>
+        <td className='published'>{formatDate(survey.publishedDate)}</td>
+        <td className='modified'>{formatDate(survey.modifiedDate)}</td>
+        <td className='total'>{integerWithThousandsSeparator(total)}</td>
+        <td className='activity'></td>
+        <td>
+          <Link to='edit' surveyId={survey.id} className="btn btn-link btn-editSurvey edit">
             <i className="glyphicon glyphicon-pencil"></i>
-          </a>
-          <a onClick={this.handleArchiveClick} className="btn btn-link btn-deleteSurvey">
-            <i className="glyphicon glyphicon-remove-circle"></i>
-          </a>
+          </Link>
         </td>
       </tr>
     );

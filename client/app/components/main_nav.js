@@ -10,7 +10,6 @@ var MainNav = React.createClass({
         <ul className='nav navbar-nav'>
           <li><Link to="list">All Surveys</Link></li>
           <li><Link to="add">Add Survey</Link></li>
-          <li><Link to="take" survey_id="237">Take Survey</Link></li>
         </ul>
       </nav>
     );

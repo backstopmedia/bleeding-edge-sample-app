@@ -1,33 +1,29 @@
 /** @jsx React.DOM */
 
 var React = require("react");
-var TableRow = require("./survey_table_row");
-var headers = ["Title", "Published On", "Last Active", "Completions", "Activity", ""];
+var SurveyTableRow = require('./survey_table_row');
 
 var SurveyTable = React.createClass({
+
   propTypes: {
     surveys: React.PropTypes.array.isRequired
   },
-  getDefaultProps: function() {
-    return {
-      surveys: []
-    };
-  },
+
   render: function () {
-
-    var rows = this.props.surveys.map(function(item, i) {
-      item.key = item.key || i;
-      return TableRow(item);
-    });
-
-    headers.map(function(item) {
-      return <th key={item}>{item}</th>;
+    var rows = this.props.surveys.map(function(survey, i) {
+      return <SurveyTableRow key={i} survey={survey}/>;
     });
 
     return (
       <table className="table survey-table">
         <thead>
-          <tr>{headers}</tr>
+          <tr>
+            <th>Title</th>
+            <th>Published On</th>
+            <th>Last Active</th>
+            <th>Completions</th>
+            <th colSpan='2'>Activity</th>
+          </tr>
         </thead>
         <tbody>{rows}</tbody>
       </table>
