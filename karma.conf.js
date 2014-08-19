@@ -69,6 +69,9 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    // To prevent this error: https://github.com/karma-runner/karma/issues/598
+    browserNoActivityTimeout: 60000
   });
 };

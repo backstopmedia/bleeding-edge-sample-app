@@ -10,7 +10,7 @@
     "test": "npm run-script test-client-unit && npm run-script test-server",
     "test-client": "./node_modules/.bin/karma start karma.conf.js",
     "test-client-unit": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
-    "test-server": "jasmine-node test/server/foo_spec.js && API_ONLY=1 mocha test/server/server.test.js"
+    "test-server": "jasmine-node test/server/routing_spec.js && API_ONLY=1 mocha test/server/server.test.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "supertest": "^0.13.0"
   },
   "devDependencies": {
+    "cheerio": "^0.17.0",
     "jasmine-node": "^1.14.5",
     "jasmine-react-helpers": "^0.2.0",
     "karma": "^0.12.21",
@@ -48,6 +49,8 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4",
-    "react-tools": "^0.11.1"
+    "react-tools": "^0.11.1",
+    "request": "^2.40.0",
+    "rewireify": "0.0.9"
   }
 }
