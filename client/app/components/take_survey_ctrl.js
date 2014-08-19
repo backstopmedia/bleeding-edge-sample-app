@@ -7,15 +7,6 @@ var SurveyStore = require("../flux/SurveyStore");
 
 var TakeSurveyCtrl = React.createClass({
   mixins: [SurveyStore.makeChangeMixin("surveys")],
-  propTypes: {
-    survey_id: React.PropTypes.string
-  },
-
-  getDefaultProps: function () {
-    return {
-      survey_id: null
-    };
-  },
 
   handleSurveySave: function(results) {
     SurveyActions.record(results);
@@ -33,7 +24,7 @@ var TakeSurveyCtrl = React.createClass({
   },
 
   render: function () {
-    var survey = this.getSurvey(this.props.survey_id);
+    var survey = this.getSurvey(this.props.params.surveyId);
 
     if (!survey) {
       return <div>Loading...</div>;
@@ -47,17 +38,18 @@ var TakeSurveyCtrl = React.createClass({
 
   // fetch the survey from the server when the id changes
   requestSurvey: function(id) {
+    console.log(id);
     if (id && !this.getSurvey(id)) {
       SurveyActions.get(id);
     }
   },
 
   componentDidMount: function(){
-    this.requestSurvey(this.props.survey_id);
+    this.requestSurvey(this.props.params.surveyId);
   },
   
   componentWillRecieveProps: function(nextProps){
-    this.requestSurvey(nextProps.survey_id);
+    this.requestSurvey(nextProps.params.surveyId);
   }
 });
 

@@ -37,7 +37,8 @@ SurveyStore.prototype.saveSurvey = function(survey) {
     }.bind(this));
 };
 
-SurveyStore.prototype.deleteSurvey = function(id) {
+SurveyStore.prototype.deleteSurvey = function(payload) {
+  var id = payload;
   console.debug("TODO: delete survey", id);
 
   this.emitChange();
@@ -65,7 +66,8 @@ SurveyStore.prototype.listSurveys = function() {
     }.bind(this));
 };
 
-SurveyStore.prototype.getSurvey = function(id) {
+SurveyStore.prototype.getSurvey = function(payload) {
+  var id = payload.id;
   request.get('/api/surveys/' + encodeURIComponent(id))
     .accept('json')
     .end(function(res){

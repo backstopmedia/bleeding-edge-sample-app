@@ -31,7 +31,7 @@ var SurveyActions = {
 
   get: function(id) {
     Dispatcher.dispatch({
-      actionType: SurveyActions.GET_SURVEY,
+      actionType: SurveyConstants.GET_SURVEY,
       id: id
     });
   }
