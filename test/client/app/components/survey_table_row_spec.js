@@ -13,8 +13,8 @@ describe("components/survey_table_row", function () {
     var survey = {
       id: "287",
       title: "Game of Thrones",
-      publishedDate: new Date(2014, 07, 1),
-      modifiedDate: new Date(2014, 07, 6),
+      createdAt: Number(new Date(2014, 07, 1)),
+      updatedAt: Number(new Date(2014, 07, 6)),
       activity: [1,2,3,4,5]
     };
 

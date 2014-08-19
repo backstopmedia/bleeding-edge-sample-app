@@ -39,7 +39,8 @@ var mockSurveys = [
         "label": "Which books was your favorite and why?"
       }
     }
-  ]
+  ],
+  activity: []
 }
 ];
 
