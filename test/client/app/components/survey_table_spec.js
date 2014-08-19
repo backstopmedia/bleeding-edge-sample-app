@@ -4,6 +4,7 @@ var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
 
 var SurveyTable = require('../../../../client/app/components/survey_table');
+var SurveyTableRow = require('../../../../client/app/components/survey_table_row');
 
 var data = [{
   id: "287",
@@ -12,7 +13,6 @@ var data = [{
   title: "Game of Thrones",
   publishedDate: new Date(2014, 07, 1),
   modifiedDate: new Date(2014, 07, 6),
-  total: 653,
   activity: []
 }, {
   id: "345",
@@ -21,7 +21,6 @@ var data = [{
   title: "Favorite Harry Potter Character",
   publishedDate: new Date(2014, 06, 17),
   modifiedDate: new Date(2014, 07, 10),
-  total: 12597,
   activity: []
 }, {
   id: "378",
@@ -30,28 +29,27 @@ var data = [{
   title: "Do You Understand Net Neutrality?",
   publishedDate: new Date(2014, 06, 04),
   modifiedDate: new Date(2014, 06, 29),
-  total: 17334,
   activity: []
 }];
 
 describe("components/survey_table", function () {
-
-  var elem;
+  var surbject;
 
   beforeEach(function () {
-    elem = TestUtils.renderIntoDocument(
+    subject = TestUtils.renderIntoDocument(
       <SurveyTable surveys={data} />
     );
   });
 
-  it("renders", function () {
-    expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-    expect(TestUtils.isCompositeComponentWithType(elem, SurveyTable)).toBe(true);
-  });
-
-  it("renders list of surveys", function () {
-    var li = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'tr');
-    expect(li.length).toBe(data.length + 1);
+  describe('#render', function () {
+    it('renders 3 SurveyTableRow', function () {
+      expect(
+        TestUtils.scryRenderedComponentsWithType(
+          subject,
+          SurveyTableRow
+        ).length
+      ).toBe(3);
+    });
   });
 
 });
