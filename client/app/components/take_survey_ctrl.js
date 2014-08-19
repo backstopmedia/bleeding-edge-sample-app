@@ -3,6 +3,7 @@ var React = require("react");
 var TakeSurvey = require("./take_survey");
 var mockData = require("../mock_survey_data");
 var merge = require('lodash-node/modern/objects/merge');
+var SurveyActions = require("../flux/SurveyActions");
 
 var TakeSurveyCtrl = React.createClass({
   propTypes: {
@@ -19,7 +20,7 @@ var TakeSurveyCtrl = React.createClass({
     };
   },
   handleSurveySave: function(results) {
-    console.log('TODO: handle survey save', results);
+    SurveyActions.record(results);
   },
   render:function () {
     var props = merge({}, this.state.survey, {
