@@ -51,11 +51,11 @@ describe("components/survey_editor", function (){
         subject.setState({
           questions: [
             {
-              type: 'yes/no',
+              type: 'yes_no',
               question: 'Is Clark Kent, Superman?'
             },
             {
-              type: 'multiple-choice',
+              type: 'multiple_choice',
               question: 'Which actor did not portray Batman?',
               choices: ['Christian Bale', 'Val Kilmer', 'Adam West', 'Tobey Maguire']
             }
@@ -70,6 +70,16 @@ describe("components/survey_editor", function (){
             EditQuestion
           ).length
         ).toBe( 2 );
+      });
+    });
+  });
+
+  describe('#handleFormChange', function () {
+    it('updates the form field', function () {
+      spyOn( subject, 'setState' );
+      subject.handleFormChange({ title: 'Superhero Survey' });
+      expect( subject.setState ).toHaveBeenCalledWith({
+        title: 'Superhero Survey'
       });
     });
   });
@@ -113,14 +123,52 @@ describe("components/survey_editor", function (){
       subject.handleDrop({
         dataTransfer: {
           getData: function () {
-            return 'yes/no';
+            return 'yes_no';
           }
         }
       });
 
       expect( subject.setState ).toHaveBeenCalledWith({
-        questions: [{ type: 'yes/no' }],
+        questions: [{ type: 'yes_no' }],
         dropZoneEntered: false
+      });
+    });
+  });
+
+  describe('#handleQuestionChange', function () {
+    beforeEach(function () {
+      subject.setState({
+        questions: [
+          { type: 'essay', description: 'who is superman?' }
+        ]
+      });
+
+      spyOn( subject, 'setState' );
+    });
+
+    it('updates the question', function () {
+      subject.handleQuestionChange(0, { type: 'essay', description: 'who is batman?' });
+      expect( subject.setState ).toHaveBeenCalledWith({
+        questions: [{ type: 'essay', description: 'who is batman?' }]
+      });
+    });
+  });
+
+  describe('#handeQuestionRemove', function () {
+    beforeEach(function () {
+      subject.setState({
+        questions: [
+          { type: 'essay', description: 'who is superman?' }
+        ]
+      });
+
+      spyOn( subject, 'setState' );
+    });
+
+    it('removes the question', function () {
+      subject.handleQuestionRemove(0);
+      expect( subject.setState ).toHaveBeenCalledWith({
+        questions: []
       });
     });
   });

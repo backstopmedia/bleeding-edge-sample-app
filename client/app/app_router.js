@@ -15,7 +15,7 @@ var ListSurveys = require('./components/list_surveys');
 var AddSurvey = require('./components/add_survey');
 var EditSurvey = require('./components/edit_survey');
 var SurveySummary = require('./components/survey_summary');
-var TakeSurvey = require('./components/take_survey');
+var TakeSurveyCtrl = require('./components/take_survey_ctrl');
 
 var appRouter = (
   <Routes location="history">
@@ -23,7 +23,7 @@ var appRouter = (
       <Route name="list" path="/" handler={ListSurveys} />
       <Route title="Add Survey to SurveyBuilder" name="add" path="/add_survey" handler={AddSurvey} />
       <Route name="edit" path="/surveys/:survey_id/edit" handler={EditSurvey} />
-      <Route name="take" path="/surveys/:survey_id" handler={TakeSurvey} />
+      <Route name="take" path="/surveys/:survey_id" handler={TakeSurveyCtrl} />
       <Route name="summary" path="/surveys/:survey_id/summary" handler={SurveySummary} />
       <NotFound title="Page Not Found" handler={NotFoundHandler}/>
     </Route>

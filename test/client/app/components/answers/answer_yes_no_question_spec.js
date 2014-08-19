@@ -2,9 +2,9 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var AnswerBasicQuestion = require("../../../../../client/app/components/answers/answer_basic_question");
+var AnswerYesNoQuestion = require("../../../../../client/app/components/answers/answer_yes_no_question");
 
-describe("AnswerBasicQuestion", function(){
+describe("AnswerYesNoQuestion", function(){
 
   var elem = null;
   var callbacks = {};
@@ -15,8 +15,8 @@ describe("AnswerBasicQuestion", function(){
     };
     spyOn(callbacks, "onCompleted");
 
-    var view = new AnswerBasicQuestion({
-      value: "test",
+    var view = AnswerYesNoQuestion({
+      value: null,
       onCompleted: callbacks.onCompleted
     });
 
@@ -25,16 +25,14 @@ describe("AnswerBasicQuestion", function(){
 
   it("should render", function(){
     expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-    expect(TestUtils.scryRenderedDOMComponentsWithTag(elem, 'div').length).toBe(2);
+    expect(TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input').length).toBe(2);
   });
 
   it("responds to user input", function() {
-    var newValue = "test";
-    var input = elem.getDOMNode().getElementsByTagName('input')[0];
-    input.value = newValue;
+    var input = TestUtils.scryRenderedDOMComponentsWithTag(elem, 'input')[0].getDOMNode();
+    input.checked = "checked";
     TestUtils.Simulate.change(input);
-    TestUtils.Simulate.blur(input);
-    expect(callbacks.onCompleted).toHaveBeenCalledWith(newValue);
+    expect(callbacks.onCompleted).toHaveBeenCalledWith("Yes");
   });
 
 });

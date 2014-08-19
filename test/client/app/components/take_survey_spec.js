@@ -5,18 +5,19 @@ var TestUtils = React.addons.TestUtils;
 var TakeSurvey = require("../../../../client/app/components/take_survey");
 
 var renderElem = function(props) {
-  var view = new TakeSurvey(props);
+  var view = TakeSurvey(props);
   return TestUtils.renderIntoDocument(view);
 };
 
 describe("TakeSurvey", function(){
 
   var elem = null;
-  var props = {};
 
   describe("rendering", function() {
     beforeEach(function() {
-      elem = renderElem(props);
+      elem = renderElem({
+        items: []
+      });
     });
 
     it("should render", function(){
@@ -26,17 +27,21 @@ describe("TakeSurvey", function(){
   });
 
   describe("items", function() {
+    var props = {};
+
     beforeEach(function() {
       props.items = [{
         id: 1,
-        type: "basic",
+        type: "yes_no",
         meta: {
+          label: "label",
           value: "test"
         }
       }, {
         id: 2,
-        type: "basic",
+        type: "yes_no",
         meta: {
+          label: "label",
           value: "test"
         }
       }];
