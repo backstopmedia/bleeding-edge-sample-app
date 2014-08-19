@@ -7,7 +7,6 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 var formatDate = function (timestamp) {
   var date = new Date(+timestamp);
-  console.log(timestamp);
   return MONTHS[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 };
 
