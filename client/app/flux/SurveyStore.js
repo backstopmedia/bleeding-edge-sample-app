@@ -18,7 +18,7 @@ SurveyStore.prototype.addChangeListener = function(callback) {
 };
 
 SurveyStore.prototype.removeChangeListener = function(callback) {
-  this.emitter.removeListener(CHANGE_EVENT, callback);
+  this.emitter.off(CHANGE_EVENT, callback);
 };
 
 // Survey-specific methods
