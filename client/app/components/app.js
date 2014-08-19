@@ -21,9 +21,14 @@ Dispatcher.register(function(payload) {
       SurveyStore.recordSurvey(payload.results);
       break;
 
-    case SurveyStore.LIST_SURVEYS:
+    case SurveyConstants.LIST_SURVEYS:
       SurveyStore.listSurveys();
       break;
+    
+    case SurveyConstants.GET_SURVEY:
+      SurveyStore.getSurvey(payload);
+      break;
+
   }
 });
 

@@ -12,7 +12,6 @@ var ListSurveys = React.createClass({
   componentDidMount: function(){
       SurveyActions.list();
   },
-
   render: function(){
     if(!this.state.surveys){
       return <div>Loading ... </div>

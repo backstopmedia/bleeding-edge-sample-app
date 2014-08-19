@@ -22,9 +22,17 @@ var SurveyActions = {
       results: results
     });
   },
+
   list: function() {
     Dispatcher.dispatch({
-      actionType: SurveyActions.LIST_SURVEYS
+      actionType: SurveyConstants.LIST_SURVEYS
+    });
+  },
+
+  get: function(id) {
+    Dispatcher.dispatch({
+      actionType: SurveyActions.GET_SURVEY,
+      id: id
     });
   }
 }
