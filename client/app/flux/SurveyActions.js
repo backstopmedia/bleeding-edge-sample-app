@@ -14,6 +14,13 @@ var SurveyActions = {
       actionType: SurveyConstants.DELETE_SURVEY,
       id: id
     });
+  },
+
+  record: function(results) {
+    Dispatcher.dispatch({
+      actionType: SurveyConstants.RECORD_SURVEY,
+      results: results
+    });
   }
 }
 

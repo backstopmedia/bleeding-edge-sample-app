@@ -16,6 +16,10 @@ Dispatcher.register(function(payload) {
     case SurveyConstants.DELETE_SURVEY:
       SurveyStore.deleteSurvey(payload.id)
       break;
+
+    case SurveyConstants.RECORD_SURVEY:
+      SurveyStore.recordSurvey(payload.results);
+      break;
   }
 });
 

@@ -34,10 +34,22 @@ SurveyStore.prototype.deleteSurvey = function(id) {
   this.emitChange();
 }
 
+SurveyStore.prototype.recordSurvey = function(results) {
+  console.debug("TODO: record the survey results", results);
+
+  this.emitChange();
+}
+
 SurveyStore.prototype.listSurveys = function(callback) {
   console.debug("TODO: fetch surveys from server via XHR");
 
   callback([]);
+}
+
+SurveyStore.prototype.getSurvey = function(id) {
+  console.debug("TODO: fetch survey by id from server via XHR");
+
+  callback({});
 }
 
 // The SurveyStore is a singleton, so export only the one instance.
