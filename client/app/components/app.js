@@ -20,14 +20,18 @@ Dispatcher.register(function(payload) {
     case SurveyConstants.RECORD_SURVEY:
       SurveyStore.recordSurvey(payload.results);
       break;
+
+    case SurveyStore.LIST_SURVEYS:
+      SurveyStore.listSurveys();
+      break;
   }
 });
 
 var App = React.createClass({
   handleChange: function() {
-    SurveyStore.listSurveys(function(surveys) {
+    //SurveyStore.listSurveys(function(surveys) {
       console.debug("TODO: update app state based on surveys returned by SurveyStore.listSurveys (once it actually returns some)");
-    });
+    // });
   },
 
   componentDidMount: function() {

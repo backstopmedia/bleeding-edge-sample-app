@@ -21,6 +21,11 @@ var SurveyActions = {
       actionType: SurveyConstants.RECORD_SURVEY,
       results: results
     });
+  },
+  list: function() {
+    Dispatcher.dispatch({
+      actionType: SurveyActions.LIST_SURVEYS
+    });
   }
 }
 

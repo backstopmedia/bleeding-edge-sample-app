@@ -2,34 +2,15 @@
 
 var React = require("react");
 var Promise = require('es6-promise').Promise;
-var AsyncState = require('react-router').AsyncState;
-
-var SurveyTable = require('./survey_table');
+var Router = require("react-router");
+var SurveyStore = require("../flux/SurveyStore");
+var SurveyActions = require("../flux/SurveyActions");
+var SurveyTable = require("./survey_table");
 
 var ListSurveys = React.createClass({
-  mixins:[AsyncState],
-
-  statics:{
-    getInitialAsyncState: function(path, query, setState){
-      return new Promise(function(resolve, reject){
-        setTimeout(function () {
-          setState({
-            surveys:[
-              {
-                id: 'asd123',
-                uri: 'asd123',
-                editUri: 'ad123',
-                title: 'Superhero mashup',
-                publishedDate: new Date(),
-                modifiedDate: new Date(),
-                activity: [121,32,54,12,546]
-              }
-            ]
-          })
-          resolve();
-        }, 100);
-      });
-    }
+  mixins:[SurveyStore.makeChangeMixin("surveys")],
+  componentDidMount: function(){
+      SurveyActions.list();
   },
 
   render: function(){
@@ -38,10 +19,9 @@ var ListSurveys = React.createClass({
     }
 
     return (
-      <div className='list-surveys'>
-        <h1>Active Surveys</h1>
-        <SurveyTable surveys={this.state.surveys}/>
-      </div>
+        <div>
+            <SurveyTable surveys={this.state.surveys} />
+        </div>
     );
   }
 });

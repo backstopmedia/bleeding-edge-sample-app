@@ -2,6 +2,15 @@ var router = require('express').Router({caseSensitive: true});
 var assert = require('assert');
 var surveys = require('../data-store')("surveys");
 
+// load fixture data
+if (!process.env.API_ONLY) {
+  setTimeout(function(){
+    require('../fixtures/surveys').forEach(function(survey){
+      surveys.upsert(survey);
+    });
+  }, 100);
+}
+
 // get all surveys
 router.get('/', function(req, res){
   res.json({surveys: surveys.getAll()});
