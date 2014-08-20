@@ -26,8 +26,12 @@ var router = require('express').Router({caseSensitive: true, strict: true});
 //only read on startup
 var template = fs.readFileSync(__dirname + "/../../client/app.html", {encoding:'utf8'});
 
-//wildcard route to pass to react client app
-router.get('*', function(req, res) {
+//middleware to pass to react client app
+router.use(function (req, res, next) {
+
+  if (req.originalUrl == "/favicon.icon") {
+    return next();
+  }
 
   Router.renderRoutesToString(app_router, req.originalUrl).then( function (data) {
     var html = template.replace(/\{\{body\}\}/, data.html);
@@ -35,11 +39,14 @@ router.get('*', function(req, res) {
     res.status(data.httpStatus).send(html);
 
   }, function (err) {
-    if (err.status == 302 && err.location) {
+    if (err.httpStatus == 302 && err.location) {
       return res.redirect(err.location);
     }
-    console.error(err.stack);
-    res.status(500).send(err)
+    if (err.httpStatus == 404) {
+      return next();
+    }
+
+    next(err);
   });
 });
 
