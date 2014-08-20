@@ -5,7 +5,8 @@ var Link = require('react-router').Link;
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var formatDate = function (date) {
+var formatDate = function (timestamp) {
+  var date = new Date(+timestamp);
   return MONTHS[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 };
 
@@ -18,8 +19,11 @@ var SurveyTableRow = React.createClass({
    survey: React.PropTypes.shape({
       id: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
-      publishedDate: React.PropTypes.instanceOf(Date).isRequired,
-      modifiedDate: React.PropTypes.instanceOf(Date).isRequired,
+      description: React.PropTypes.string.isRequired,
+      createdAt: React.PropTypes.number.isRequired,
+      updatedAt: React.PropTypes.number.isRequired,
+      // createdAt: React.PropTypes.instanceOf(Date).isRequired,
+      // updatedAt: React.PropTypes.instanceOf(Date).isRequired,
       activity: React.PropTypes.array.isRequired
     }).isRequired
   },
@@ -38,10 +42,10 @@ var SurveyTableRow = React.createClass({
             {survey.title}
           </Link>
         </td>
-        <td className='published'>{formatDate(survey.publishedDate)}</td>
-        <td className='modified'>{formatDate(survey.modifiedDate)}</td>
+        <td className='published'>{formatDate(survey.createdAt)}</td>
+        <td className='modified'>{formatDate(survey.updatedAt)}</td>
         <td className='total'>{integerWithThousandsSeparator(total)}</td>
-        <td className='activity'></td>
+        <td className='activity'>...</td>
         <td>
           <Link to='edit' surveyId={survey.id} className="btn btn-link btn-editSurvey edit">
             <i className="glyphicon glyphicon-pencil"></i>

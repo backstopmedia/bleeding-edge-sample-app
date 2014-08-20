@@ -14,6 +14,26 @@ var SurveyActions = {
       actionType: SurveyConstants.DELETE_SURVEY,
       id: id
     });
+  },
+
+  record: function(results) {
+    Dispatcher.dispatch({
+      actionType: SurveyConstants.RECORD_SURVEY,
+      results: results
+    });
+  },
+
+  list: function() {
+    Dispatcher.dispatch({
+      actionType: SurveyConstants.LIST_SURVEYS
+    });
+  },
+
+  get: function(id) {
+    Dispatcher.dispatch({
+      actionType: SurveyConstants.GET_SURVEY,
+      id: id
+    });
   }
 }
 

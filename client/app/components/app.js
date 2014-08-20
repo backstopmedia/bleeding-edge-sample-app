@@ -16,14 +16,27 @@ Dispatcher.register(function(payload) {
     case SurveyConstants.DELETE_SURVEY:
       SurveyStore.deleteSurvey(payload.id)
       break;
+
+    case SurveyConstants.RECORD_SURVEY:
+      SurveyStore.recordSurvey(payload.results);
+      break;
+
+    case SurveyConstants.LIST_SURVEYS:
+      SurveyStore.listSurveys();
+      break;
+    
+    case SurveyConstants.GET_SURVEY:
+      SurveyStore.getSurvey(payload);
+      break;
+
   }
 });
 
 var App = React.createClass({
   handleChange: function() {
-    SurveyStore.listSurveys(function(surveys) {
+    //SurveyStore.listSurveys(function(surveys) {
       console.debug("TODO: update app state based on surveys returned by SurveyStore.listSurveys (once it actually returns some)");
-    });
+    // });
   },
 
   componentDidMount: function() {

@@ -1,10 +1,20 @@
+var merge = require('lodash-node/modern/objects/merge');
 var router = require('express').Router({caseSensitive: true});
 var assert = require('assert');
 var surveys = require('../data-store')("surveys");
 
+// load fixture data
+if (!process.env.API_ONLY) {
+  setTimeout(function(){
+    require('../fixtures/surveys').forEach(function(survey){
+      surveys.upsert(survey);
+    });
+  }, 100);
+}
+
 // get all surveys
 router.get('/', function(req, res){
-  res.json({surveys: surveys.getAll()});
+  res.json({surveys: surveys.getAll().map(Survey)});
 });
 
 // get one survey
@@ -14,7 +24,7 @@ router.get('/:id', function(req, res){
 
   var survey = surveys.getById(req.params.id);
   if (survey) {
-    res.status(200).json(survey);
+    res.status(200).json(Survey(survey));
   }
   else {
     res.status(404).json({message: "This survey does not exist"});
@@ -23,7 +33,7 @@ router.get('/:id', function(req, res){
 
 // create a survey
 router.post('/', function(req, res){
-  var item = {};
+  var item = Survey(req.body);
   surveys.upsert(item);
   res.status(201).json(item);
 });
@@ -36,7 +46,7 @@ router.put('/:id', function(req, res){
   var item = req.body;
   item.id = req.params.id;
   if (surveys.getById(item.id)) {
-    surveys.upsert(item);
+    surveys.upsert(Survey(item));
     res.status(200).json({message: "Saved"});
   }
   else {
@@ -76,3 +86,16 @@ router.use('/:surveyId/responses', function(req, res, next){
 }, require('./survey-responses.js'));
 
 module.exports = router;
+
+// this makes sure any missing fields are added
+function Survey(data){
+  var survey = merge({
+    description: "",
+    title: "",
+    createdAt: Date.now(),
+    updatedAt: data.createdAt || Date.now(),
+    items: [],
+    activity: []
+  }, data);
+  return survey;
+}

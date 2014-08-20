@@ -1,5 +1,8 @@
 /** @jsx React.DOM */
 
+// include the es6 shim
+require("es6-shim");
+
 var React = require("react");
 
 var Router = require("react-router");

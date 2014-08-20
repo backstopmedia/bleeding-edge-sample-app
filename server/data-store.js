@@ -9,10 +9,11 @@ function DataStore(name){
   DataStore.instances[name] = store;
 
   store.items = [];
-  store.itemsById = [];
+  store.itemsById = {};
 
   // update, or insert if it doesn't exist
   store.upsert = function(item){
+    item = JSON.parse(JSON.stringify(item));
     if (!item.id) {
       // random 9 hex digit code
       item.id = store.makeId();
