@@ -26,9 +26,7 @@ app.use('/api/surveys', require('./api/surveys'));
 app.use(express.static('./public'));
 
 //render the app server side
-if (!process.env.API_ONLY) {
-    app.use('/', require('./render/render'));
-}
+app.use('/', require('./render/render'));
 
 if (require.main === module) {
     console.log('App started goto - http://0.0.0.0:' + port);

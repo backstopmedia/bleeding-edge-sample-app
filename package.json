@@ -10,7 +10,7 @@
     "watch": "karma start karma.conf.js",
     "test": "npm run test-client && npm run test-server",
     "test-client": "karma start --single-run --browsers PhantomJS",
-    "test-server": "API_ONLY=1 mocha test/server/server.test.js"
+    "test-server": "mocha test/server/main.js"
   },
   "repository": {
     "type": "git",
@@ -33,12 +33,14 @@
     "merge": "^1.1.3",
     "node-jsx": "^0.11.0",
     "react": "^0.11.1",
-    "reactify": "^0.14.0",
-    "lodash-node": "^2.4.1",
     "react-router": "git://github.com/karlmikko/react-router.git#server-render",
+    "reactify": "^0.14.0",
     "supertest": "^0.13.0"
   },
   "devDependencies": {
+    "cheerio": "^0.17.0",
+    "expect.js": "^0.3.1",
+    "jasmine-react-helpers": "^0.2.0",
     "karma": "^0.12.21",
     "karma-bro": "^0.6.2",
     "karma-chrome-launcher": "^0.1.4",
@@ -47,7 +49,6 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4",
-    "react-tools": "^0.11.1",
-    "jasmine-react-helpers": "^0.2.0"
+    "react-tools": "^0.11.1"
   }
 }
