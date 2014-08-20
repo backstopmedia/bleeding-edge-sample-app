@@ -7,12 +7,13 @@ var ModuleButton = React.createClass({
     text: React.PropTypes.string.isRequired,
     questionType: React.PropTypes.string.isRequired
   },
+
   render: function () {
     return (
-      <button draggable="true" className="btn btn-lg btn-secondary draggable" onDragStart={this.handleDragStart}>
+      <div draggable="true" className="btn btn-lg btn-secondary draggable" onDragStart={this.handleDragStart}>
         <span className="glyphicon glyphicon-move" onClick={this.props.onClick}/>
         {this.props.text}
-      </button>
+      </div>
     );
   },
 

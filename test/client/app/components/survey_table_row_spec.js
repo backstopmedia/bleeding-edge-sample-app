@@ -2,36 +2,58 @@
 
 var React = require("react/addons");
 var TestUtils = React.addons.TestUtils;
-var SurveyTableRow = require("../../../../client/app/components/survey_table_row");
-var jasmineReact = require("jasmine-react-helpers");
+var Link = require('react-router').Link;
 
-var mockRowData = {
-  id: "287",
-  uri: "/surveys/287",
-  editUri: "/surveys/287/edit",
-  title: "Game of Thrones",
-  publishedDate: new Date(2014, 07, 1),
-  modifiedDate: new Date(2014, 07, 6),
-  total: 653,
-  activity: []
-};
+var SurveyTableRow = require('../../../../client/app/components/survey_table_row');
 
 describe("components/survey_table_row", function () {
+  var subject;
 
-  it("renders", function () {
-    var elem = TestUtils.renderIntoDocument(new SurveyTableRow(mockRowData));
-    expect(TestUtils.isCompositeComponent(elem)).toBe(true);
-    expect(TestUtils.isCompositeComponentWithType(elem, SurveyTableRow)).toBe(true);
+  beforeEach(function () {
+    var survey = {
+      id: "287",
+      title: "Game of Thrones",
+      publishedDate: new Date(2014, 07, 1),
+      modifiedDate: new Date(2014, 07, 6),
+      activity: [1,2,3,4,5]
+    };
+
+    subject = TestUtils.renderIntoDocument(
+      <SurveyTableRow survey={survey} />
+    );
   });
 
-  it("triggers the archive action", function () {
-    jasmineReact.spyOnClass(SurveyTableRow, 'handleArchiveClick');
+  describe("#render", function () {
+    it('renders the title as a Link to the take route', function () {
+      var title = TestUtils.scryRenderedComponentsWithType(subject, Link)[0];
+      expect( title.props.to ).toBe( 'take' );
+      expect( title.props.surveyId ).toBe( "287" );
+      expect( title.props.children ).toBe( "Game of Thrones" );
+    });
 
-    var elem = TestUtils.renderIntoDocument(new SurveyTableRow(mockRowData));
-    var anchor = TestUtils.findRenderedDOMComponentWithClass(elem, 'btn-deleteSurvey');
+    it('renders the publish date', function () {
+      expect(
+        TestUtils.findRenderedDOMComponentWithClass(subject, 'published').props.children
+      ).toBe('August 1, 2014');
+    });
 
-    TestUtils.Simulate.click(anchor.getDOMNode());
-    expect(jasmineReact.classPrototype(SurveyTableRow).handleArchiveClick).toHaveBeenCalled();
+    it('renders the modified date', function () {
+      expect(
+        TestUtils.findRenderedDOMComponentWithClass(subject, 'modified').props.children
+      ).toBe('August 6, 2014');
+    });
+
+    it('renders the total', function () {
+      expect(
+        TestUtils.findRenderedDOMComponentWithClass(subject, 'total').props.children
+      ).toBe('15');
+    });
+
+    it('renders a Link to the edit route', function () {
+      var edit = TestUtils.scryRenderedComponentsWithType(subject, Link)[1];
+      expect( edit.props.to ).toBe( 'edit' );
+      expect( edit.props.surveyId ).toBe( "287" );
+    });
   });
 
 });

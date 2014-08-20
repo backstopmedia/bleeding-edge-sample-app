@@ -11,6 +11,8 @@ var EditYesNoQuestion = require('./questions/edit_yes_no_question');
 var EditMultipleChoiceQuestion = require('./questions/edit_multiple_choice_question');
 var EditEssayQuestion = require('./questions/edit_essay_question');
 
+var SurveyActions = require("../flux/SurveyActions");
+
 var SUPPORTED_QUESTIONS = {
   yes_no:           EditYesNoQuestion,
   multiple_choice:  EditMultipleChoiceQuestion,
@@ -121,7 +123,11 @@ var SurveyEditor = React.createClass({
   },
 
   handleSaveClicked: function (ev) {
-    console.log('TODO: handle save of questions', this.state.questions);
+    SurveyActions.save({
+      title:        this.state.title,
+      introduction: this.state.introduction,
+      questions:    this.state.questions
+    });
   }
 
 });
