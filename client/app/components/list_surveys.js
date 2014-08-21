@@ -13,7 +13,6 @@ var ListSurveys = React.createClass({
 
   statics:{
     getInitialAsyncState: function(params, query, setState){
-      console.log(arguments);
       return new Promise(function(resolve, reject){
         SurveyStore.listSurveys(function (surveys) {
           setState({surveys: surveys});
@@ -23,13 +22,14 @@ var ListSurveys = React.createClass({
     }
   },
 
+  updateState:function(){
+    this.constructor.getInitialAsyncState(this.props.params, this.props.query, this.setState);
+  },
   componentDidMount: function () {
-    console.log("mount");
-    SurveyStore.addChangeListener(this.constructor.getInitialAsyncState);
+    SurveyStore.addChangeListener(this.updateState);
   },
   componentWillUnmount: function () {
-    console.log("unmount");
-    SurveyStore.removeChangeListener(this.constructor.getInitialAsyncState);
+    SurveyStore.removeChangeListener(this.updateState);
   },
 
   render: function(){

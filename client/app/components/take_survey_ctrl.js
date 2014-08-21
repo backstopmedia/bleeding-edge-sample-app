@@ -6,13 +6,14 @@ var merge = require('lodash-node/modern/objects/merge');
 var SurveyActions = require("../flux/SurveyActions");
 var SurveyTable = require('./survey_table');
 var SurveyStore = require("../flux/SurveyStore");
+var Promise = require('es6-promise').Promise;
+var AsyncState = require('react-router').AsyncState;
 
 var TakeSurveyCtrl = React.createClass({
   mixins:[AsyncState],
 
   statics:{
     getInitialAsyncState: function(params, query, setState){
-      console.log(arguments);
       return new Promise(function(resolve, reject){
         SurveyStore.getSurvey(params.surveyId, function (survey) {
           setState({survey: survey});
@@ -21,16 +22,16 @@ var TakeSurveyCtrl = React.createClass({
       });
     }
   },
-  updateAsyncState:function(){
+
+  updateState:function(){
     this.constructor.getInitialAsyncState(this.props.params, this.props.query, this.setState);
   },
   componentDidMount: function () {
-    SurveyStore.addChangeListener(updateAsyncState);
+    SurveyStore.addChangeListener(this.updateState);
   },
   componentWillUnmount: function () {
-    SurveyStore.removeChangeListener(updateAsyncState);
+    SurveyStore.removeChangeListener(this.updateState);
   },
-
 
   propTypes: {
     survey_id: React.PropTypes.string
