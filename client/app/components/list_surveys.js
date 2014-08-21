@@ -6,30 +6,30 @@ var AsyncState = require('react-router').AsyncState;
 
 var SurveyTable = require('./survey_table');
 
+var SurveyStore = require("../flux/SurveyStore");
+
 var ListSurveys = React.createClass({
   mixins:[AsyncState],
 
   statics:{
-    getInitialAsyncState: function(path, query, setState){
+    getInitialAsyncState: function(params, query, setState){
+      console.log(arguments);
       return new Promise(function(resolve, reject){
-        setTimeout(function () {
-          setState({
-            surveys:[
-              {
-                id: 'asd123',
-                uri: 'asd123',
-                editUri: 'ad123',
-                title: 'Superhero mashup',
-                publishedDate: new Date(),
-                modifiedDate: new Date(),
-                activity: [121,32,54,12,546]
-              }
-            ]
-          })
+        SurveyStore.listSurveys(function (surveys) {
+          setState({surveys: surveys});
           resolve();
-        }, 100);
+        });
       });
     }
+  },
+
+  componentDidMount: function () {
+    console.log("mount");
+    SurveyStore.addChangeListener(this.constructor.getInitialAsyncState);
+  },
+  componentWillUnmount: function () {
+    console.log("unmount");
+    SurveyStore.removeChangeListener(this.constructor.getInitialAsyncState);
   },
 
   render: function(){

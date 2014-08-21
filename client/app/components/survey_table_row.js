@@ -3,11 +3,14 @@
 var React = require("react");
 var Link = require('react-router').Link;
 var Sparkline = require('./sparkline');
+var moment = require('moment');
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 var formatDate = function (date) {
-  return MONTHS[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+  if (date) {
+    return moment("2010-10-20 4:30 +0000", "YYYY-MM-DDTHH:mm:ssZ").format('YYYY-MM-DD');
+  }
 };
 
 function integerWithThousandsSeparator(x) {
@@ -19,8 +22,8 @@ var SurveyTableRow = React.createClass({
    survey: React.PropTypes.shape({
       id: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
-      publishedDate: React.PropTypes.instanceOf(Date).isRequired,
-      modifiedDate: React.PropTypes.instanceOf(Date).isRequired,
+      publishedAt: React.PropTypes.string,
+      updatedAt: React.PropTypes.string.isRequired,
       activity: React.PropTypes.array.isRequired
     }).isRequired
   },
@@ -39,8 +42,8 @@ var SurveyTableRow = React.createClass({
             {survey.title}
           </Link>
         </td>
-        <td className='published'>{formatDate(survey.publishedDate)}</td>
-        <td className='modified'>{formatDate(survey.modifiedDate)}</td>
+        <td className='published'>{formatDate(survey.publishedAt)}</td>
+        <td className='modified'>{formatDate(survey.updatedAt)}</td>
         <td className='total'>{integerWithThousandsSeparator(total)}</td>
         <td className='activity'>
           <Sparkline points={survey.activity} />

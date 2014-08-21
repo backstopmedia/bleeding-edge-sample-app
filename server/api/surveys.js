@@ -1,10 +1,10 @@
 var router = require('express').Router({caseSensitive: true});
 var assert = require('assert');
-var surveys = require('../data-store')("surveys");
+var surveys = require('./stores').surveys;
 
 // get all surveys
 router.get('/', function(req, res){
-  res.json({surveys: surveys.getAll()});
+  res.json(surveys.getAll());
 });
 
 // get one survey
@@ -23,7 +23,9 @@ router.get('/:id', function(req, res){
 
 // create a survey
 router.post('/', function(req, res){
-  var item = {};
+  //to force upsert to assign generated id
+  req.body.id = undefined;
+  var item = req.body;
   surveys.upsert(item);
   res.status(201).json(item);
 });

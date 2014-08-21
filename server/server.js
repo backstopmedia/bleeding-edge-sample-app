@@ -28,6 +28,12 @@ app.use(express.static('./public'));
 //render the app server side
 app.use('/', require('./render/render'));
 
+//add mock data
+var mock_survey_data = require('../mock_survey_data');
+var stores = require('./api/stores');
+stores.surveys.upsert(mock_survey_data);
+
+
 if (require.main === module) {
     console.log('App started goto - http://0.0.0.0:' + port);
     app.listen(port);

@@ -1,13 +1,13 @@
 var router = require('express').Router({caseSensitive: true});
 var assert = require('assert');
-var responses = require('../data-store')("surveyResponses");
+var responses = require('./stores').responses;
 
 // get all responses
 router.get('/', function(req, res){
   var responses = responses.getAll().filter(function(response){
     return response.surveyId === req.params.surveyId;
   });
-  res.json({responses: responses});
+  res.json(responses);
 });
 
 // get one response

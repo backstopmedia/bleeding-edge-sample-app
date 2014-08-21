@@ -1,9 +1,10 @@
 var mockSurveyData = {
-  id: 435,
   title: "Harry Potter Character Quiz",
   description: "Which Harry Potter character are you? Finally put this burning question to rest...",
   createdAt: new Date(),
   updatedAt: new Date(),
+  publishedAt: new Date(),
+  activity: [121,32,54,12,546],
   items: [{
     "id": 35,
     "type": "yes_no",
