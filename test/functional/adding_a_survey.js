@@ -8,7 +8,7 @@ casper.options.viewportSize = {width: 800, height: 600};
 casper.test.begin('Adding a survey', 3, function suite(test) {
 
   // start the test by going to the homepage
-  casper.start("http://localhost:8080/", function(){
+  casper.start("http://localhost:3040/", function(){
     // assert the title of the homepage is "SurveyBuilder"
     test.assertTitle("SurveyBuilder", "the title for the homepage is correct");
   });
