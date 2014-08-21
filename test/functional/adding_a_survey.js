@@ -3,8 +3,6 @@ casper.options.verbose = true;
 casper.options.logLevel = "debug";
 casper.options.viewportSize = {width: 800, height: 600};
 
-// TODO: this test suite requires the node server to be running
-//  I should start the server in the setUp and tearDown casperjs hooks
 casper.test.begin('Adding a survey', 3, function suite(test) {
 
   // start the test by going to the homepage
