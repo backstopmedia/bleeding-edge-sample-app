@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react/addons');
 
 var Divider = require('./divider');
 
@@ -12,6 +12,8 @@ var EditMultipleChoiceQuestion = require('./questions/edit_multiple_choice_quest
 var EditEssayQuestion = require('./questions/edit_essay_question');
 
 var SurveyActions = require("../flux/SurveyActions");
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var SUPPORTED_QUESTIONS = {
   yes_no:           EditYesNoQuestion,
@@ -60,7 +62,9 @@ var SurveyEditor = React.createClass({
             />
 
             <Divider>Questions</Divider>
-            {questions}
+            <ReactCSSTransitionGroup transitionName='question'>
+              {questions}
+            </ReactCSSTransitionGroup>
 
             <div
               className={'drop-zone well well-drop-zone ' + dropZoneEntered}
