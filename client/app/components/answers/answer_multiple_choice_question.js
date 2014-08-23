@@ -24,7 +24,7 @@ var AnswerMultipleChoiceQuestion = React.createClass({
   renderChoices: function() {
     return this.props.choices.map(function(choice, i) {
       return AnswerRadioInput({
-        id: "choice-" + i,
+        key: 'choice-' + i,
         name: this.state.id,
         label: choice,
         value: choice,
