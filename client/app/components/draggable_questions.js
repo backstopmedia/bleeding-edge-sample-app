@@ -13,6 +13,10 @@ var DraggableQuestions = React.createClass({
         <li><ModuleButton text='Essay' questionType='essay'/></li>
       </ul>
     );
+  },
+
+  shouldComponentUpdate: function () {
+    return false;
   }
 });
 

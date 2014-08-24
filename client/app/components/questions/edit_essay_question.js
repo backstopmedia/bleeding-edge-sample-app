@@ -1,10 +1,12 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react/addons');
 var merge = require('lodash-node/modern/objects/merge');
 var EditQuestion = require('./edit_question');
 
 var EditEssayQuestion = React.createClass({
+
+  mixin: [React.addons.PureRenderMixin],
 
   propTypes: {
     key: React.PropTypes.number.isRequired,
