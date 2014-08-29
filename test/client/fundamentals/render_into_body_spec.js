@@ -3,6 +3,7 @@
 var React = require("react/addons");
 
 var HelloWorld = require('../../../client/testing_examples/hello_world');
+var Footprint = require('../../../client/testing_examples/footprint');
 
 describe("HelloWorld", function(){
   describe("renderComponent", function(){
@@ -47,4 +48,30 @@ describe("HelloWorld", function(){
   });
 
   // TODO: build this same example with jasmineReact and the unmounting comes for free.
+});
+
+describe("Footprint", function(){
+  describe("render", function(){
+
+    var el;
+
+    beforeEach(function(){
+      el = document.createElement("div");
+      document.body.appendChild(el);
+    });
+
+    afterEach(function(){
+      // we need to tell React to unmount the component to clean everything up
+      React.unmountComponentAtNode(el);
+
+      // we should remove the <div id="content"></div> as well, so the beforeEach function creates a
+      //  new one which is unique and fresh for each test
+      el.parentNode.removeChild(el);
+    });
+
+    it("should output the width of the component", function(){
+      var myComponent = React.renderComponent(<Footprint />, el);
+      expect(myComponent.getDOMNode().textContent).toContain("component width: placeholder-value");
+    });
+  });
 });

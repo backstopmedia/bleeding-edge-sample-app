@@ -20,9 +20,9 @@ describe("HelloRandom", function(){
       //   of the render function.
       jasmineReact.spyOnClass(HelloRandom, "getRandomAuthor").andReturn({name: "Fake User", githubUsername: "fakeGithub"});
 
-      var myHelloTime = TestUtils.renderIntoDocument(<HelloRandom />);
+      var myHelloRandom = TestUtils.renderIntoDocument(<HelloRandom />);
 
-      expect(myHelloTime.getDOMNode().textContent).toBe("Fake User is an author and their github handle is fakeGithub.");
+      expect(myHelloRandom.getDOMNode().textContent).toBe("Fake User is an author and their github handle is fakeGithub.");
     });
   });
 

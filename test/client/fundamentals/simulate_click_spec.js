@@ -15,13 +15,14 @@ describe("ClickMe", function(){
     });
 
     it("should increase the count", function(){
+      expect(subject.getDOMNode().textContent).toBe("Click me counter: 0");
       expect(subject.state.clicks).toBe(0);
 
       // click on the <h1> dom node
       TestUtils.Simulate.click(subject.getDOMNode());
 
-      expect(subject.state.clicks).toBe(1);
       expect(subject.getDOMNode().textContent).toBe("Click me counter: 1");
+      expect(subject.state.clicks).toBe(1);
     });
   });
 

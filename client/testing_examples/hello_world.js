@@ -11,8 +11,8 @@ var HelloWorld = React.createClass({
   render: function(){
     return (
       <div>
-        <h1>{ this.props.name }</h1>
-        <h2 className="subheading">Hello World!</h2>
+        <h1>Hello World!</h1>
+        <h2 className="subheading">{this.props.name}</h2>
       </div>
       );
   }
