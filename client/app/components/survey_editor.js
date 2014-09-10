@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react/addons');
 
 var Divider = require('./divider');
 
@@ -12,6 +12,10 @@ var EditMultipleChoiceQuestion = require('./questions/edit_multiple_choice_quest
 var EditEssayQuestion = require('./questions/edit_essay_question');
 
 var SurveyActions = require("../flux/SurveyActions");
+
+var update = React.addons.update;
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var SUPPORTED_QUESTIONS = {
   yes_no:           EditYesNoQuestion,
@@ -60,7 +64,9 @@ var SurveyEditor = React.createClass({
             />
 
             <Divider>Questions</Divider>
-            {questions}
+            <ReactCSSTransitionGroup transitionName='question'>
+              {questions}
+            </ReactCSSTransitionGroup>
 
             <div
               className={'drop-zone well well-drop-zone ' + dropZoneEntered}
@@ -101,8 +107,9 @@ var SurveyEditor = React.createClass({
 
   handleDrop: function (ev) {
     var questionType = ev.dataTransfer.getData('questionType');
-    var questions = this.state.questions;
-    questions = questions.concat({ type: questionType });
+    var questions = update(this.state.questions, {
+      $push: [{ type: questionType }]
+    });
 
     this.setState({
       questions: questions,
@@ -111,14 +118,18 @@ var SurveyEditor = React.createClass({
   },
 
   handleQuestionChange: function (key, newQuestion) {
-    var questions = this.state.questions;
-    questions[key] = newQuestion;
+    var questions = update(this.state.questions, {
+      $splice: [[key, 1, newQuestion]]
+    });
+
     this.setState({ questions: questions });
   },
 
   handleQuestionRemove: function (key) {
-    var questions = this.state.questions;
-    questions.splice(key, 1);
+    var questions = update(this.state.questions, {
+      $splice: [[key, 1]]
+    });
+
     this.setState({ questions: questions });
   },
 

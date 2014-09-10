@@ -22,7 +22,8 @@ var SurveyTable = React.createClass({
             <th>Published On</th>
             <th>Last Active</th>
             <th>Completions</th>
-            <th colSpan='2'>Activity</th>
+            <th>Activity</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>

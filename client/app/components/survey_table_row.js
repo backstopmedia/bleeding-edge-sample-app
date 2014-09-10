@@ -2,6 +2,7 @@
 
 var React = require("react");
 var Link = require('react-router').Link;
+var Sparkline = require('./sparkline');
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -41,7 +42,9 @@ var SurveyTableRow = React.createClass({
         <td className='published'>{formatDate(survey.publishedDate)}</td>
         <td className='modified'>{formatDate(survey.modifiedDate)}</td>
         <td className='total'>{integerWithThousandsSeparator(total)}</td>
-        <td className='activity'></td>
+        <td className='activity'>
+          <Sparkline points={survey.activity} />
+        </td>
         <td>
           <Link to='edit' surveyId={survey.id} className="btn btn-link btn-editSurvey edit">
             <i className="glyphicon glyphicon-pencil"></i>

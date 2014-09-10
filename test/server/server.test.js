@@ -1,5 +1,5 @@
-var app = require('../../server/server.js');
 var request = require('supertest');
+var app = require('../../server/server.js');
 
 // can be useful for debugging
 // surveys.items is an array of items, surveys.itemsById is an object mapping ids to surveys
