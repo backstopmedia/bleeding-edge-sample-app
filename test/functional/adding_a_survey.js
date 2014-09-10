@@ -9,18 +9,9 @@ casper.test.begin('Adding a survey', 3, function suite(test) {
   casper.start("http://localhost:3040/", function(){
     // assert the title of the homepage is "SurveyBuilder"
     test.assertTitle("SurveyBuilder", "the title for the homepage is correct");
-  });
 
-  casper.then(function(){
     // click on the "Add Survey" link (which is the second in the nav bar)
     this.click(".navbar-nav li:nth-of-type(2) a");
-  });
-
-  casper.waitFor(function(){
-    // wait for the active tab to be the "Add Survey" tab
-    return this.evaluate(function(){
-      return document.querySelector(".navbar-nav li a.active").innerHTML === "Add Survey";
-    });
   });
 
   casper.then(function(){

@@ -71,7 +71,7 @@ describe("Footprint", function(){
 
     it("should output the width of the component", function(){
       var myComponent = React.renderComponent(<Footprint />, el);
-      expect(myComponent.getDOMNode().textContent).toContain("component width: placeholder-value");
+      expect(myComponent.getDOMNode().textContent).toContain("component width: 100");
     });
   });
 });
