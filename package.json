@@ -4,13 +4,15 @@
   "description": "bleeding-edge-sample-app ========================",
   "main": "server/server.js",
   "scripts": {
-    "prestart": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
+    "prestart": "npm run-script build",
+    "pretest-functional": "npm run-script build",
     "build": "browserify -t reactify client/client.js > public/build/bundle.js --debug",
     "start": "node server/server.js",
-    "watch": "karma start karma.conf.js",
-    "test": "npm run test-client && npm run test-server",
-    "test-client": "karma start --single-run --browsers PhantomJS",
-    "test-server": "mocha test/server/main.js"
+    "test": "npm run-script test-client-unit && npm run-script test-server && npm run-script test-functional",
+    "test-client": "./node_modules/.bin/karma start karma.conf.js",
+    "test-client-unit": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
+    "test-functional": "node run_casperjs.js",
+    "test-server": "jasmine-node test/server/routing_spec.js && mocha test/server/main.js"
   },
   "repository": {
     "type": "git",
@@ -38,8 +40,10 @@
     "supertest": "^0.13.0"
   },
   "devDependencies": {
+    "casperjs": "^1.1.0-beta3",
     "cheerio": "^0.17.0",
     "expect.js": "^0.3.1",
+    "jasmine-node": "^1.14.5",
     "jasmine-react-helpers": "^0.2.0",
     "karma": "^0.12.21",
     "karma-bro": "^0.6.2",
@@ -49,6 +53,8 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4",
-    "react-tools": "^0.11.1"
+    "react-tools": "^0.11.1",
+    "request": "^2.40.0",
+    "rewireify": "0.0.9"
   }
 }

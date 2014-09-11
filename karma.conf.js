@@ -16,7 +16,6 @@ module.exports = function(config) {
       'test/client/support/phantomjs-shims.js',
       'client/**/*.js',
       'test/client/**/*.js'
-//      'server/**/*.js'
     ],
 
 
@@ -29,14 +28,13 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'client/**/*.js': ['browserify'],
-      'test/**/*.js': ['browserify']
-//      'server/**/*.js': ['browserify']
+      'test/client/**/*.js': ['browserify']
     },
 
 
     browserify: {
       debug: true,
-      transform: [ 'reactify' ]
+      transform: [ 'reactify', 'rewireify' ]
     },
 
 
@@ -65,11 +63,15 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+//    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    // To prevent this error: https://github.com/karma-runner/karma/issues/598
+    browserNoActivityTimeout: 60000
   });
 };
