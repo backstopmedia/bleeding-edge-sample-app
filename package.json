@@ -12,7 +12,7 @@
     "test-client": "./node_modules/.bin/karma start karma.conf.js",
     "test-client-unit": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
     "test-functional": "node run_casperjs.js",
-    "test-server": "jasmine-node test/server/routing_spec.js && mocha test/server/main.js"
+    "test-server": "mocha test/server/main.js"
   },
   "repository": {
     "type": "git",
