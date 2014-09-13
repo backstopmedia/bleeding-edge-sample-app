@@ -3,12 +3,11 @@ var cheerio = require('cheerio');
 var app = require('../../server/server.js');
 var expect = require('expect.js');
 
-request = request(app);
-
 describe("serverside routing", function(){
   it("should render the AddSurvey component for the /add_survey path", function(done){
 
-    request.get('/add_survey')
+    request(app)
+      .get('/add_survey')
       .expect(200)
       .end(function (err, res) {
         var doc = cheerio.load(res.text);
@@ -18,15 +17,14 @@ describe("serverside routing", function(){
       });
   });
 
-
-
   it("should render a 404 page for an invalid route", function(done){
-      request.get('/not-found-route')
+    request(app)
+      .get('/not-found-route')
       .expect(404)
       .end(function (err, res) {
         var doc = cheerio.load(res.text);
         expect(doc("body").html()).to.contain("The Page you were looking for isn&apos;t here!");
         done();
-      });      
+      });
   });
 });
