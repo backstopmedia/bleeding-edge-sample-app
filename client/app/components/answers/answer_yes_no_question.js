@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var AnswerMultipleChoiceQuestion = require('./answer_multiple_choice_question');
+var AnswerMultipleChoiceQuestion = React.createFactory(require('./answer_multiple_choice_question'));
 var merge = require('lodash-node/modern/objects/merge');
 
 var AnswerYesNoQuestion = React.createClass({

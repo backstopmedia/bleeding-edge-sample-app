@@ -8,13 +8,13 @@ var Route = Router.Route;
 var NotFoundRoute = Router.NotFoundRoute;
 
 // Handlers
-var App = require('./components/app');
-var NotFoundHandler = require('./components/not_found');
+var App = React.createFactory(require('./components/app'));
+var NotFoundHandler = React.createFactory(require('./components/not_found'));
 
-var ListSurveys = require('./components/list_surveys');
-var AddSurvey = require('./components/add_survey');
-var EditSurvey = require('./components/edit_survey');
-var TakeSurveyCtrl = require('./components/take_survey_ctrl');
+var ListSurveys = React.createFactory(require('./components/list_surveys'));
+var AddSurvey = React.createFactory(require('./components/add_survey'));
+var EditSurvey = React.createFactory(require('./components/edit_survey'));
+var TakeSurveyCtrl = React.createFactory(require('./components/take_survey_ctrl'));
 
 var appRouter = (
   <Routes location="history">

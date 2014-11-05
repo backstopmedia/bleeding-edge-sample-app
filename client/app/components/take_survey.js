@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var TakeSurveyItem = require("./take_survey_item");
+var TakeSurveyItem = React.createFactory(require("./take_survey_item"));
 var merge = require('lodash-node/modern/objects/merge');
 
 var TakeSurvey = React.createClass({

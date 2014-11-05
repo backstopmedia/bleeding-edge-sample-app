@@ -1,6 +1,7 @@
-var YesNoQuestion = require('./answer_yes_no_question');
-var MultipleQuestion = require('./answer_multiple_choice_question');
-var EssayQuestion = require('./answer_essay_question');
+var React = require('react');
+var YesNoQuestion = React.createFactory(require('./answer_yes_no_question'));
+var MultipleQuestion = React.createFactory(require('./answer_multiple_choice_question'));
+var EssayQuestion = React.createFactory(require('./answer_essay_question'));
 
 var answerTypeMap = {
   yes_no: YesNoQuestion,

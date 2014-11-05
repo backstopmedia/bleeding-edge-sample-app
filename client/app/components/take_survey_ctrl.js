@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require("react");
-var TakeSurvey = require("./take_survey");
+var TakeSurvey = React.createFactory(require("./take_survey"));
 var mockData = require("../mock_survey_data");
 var merge = require('lodash-node/modern/objects/merge');
 var SurveyActions = require("../flux/SurveyActions");
