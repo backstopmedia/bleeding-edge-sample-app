@@ -15,4 +15,4 @@ var app_router = require('./app/app_router');
 //allow react dev tools work
 window.React = React;
 
-React.renderComponent(app_router, document.body);
+React.render(app_router, document.body);

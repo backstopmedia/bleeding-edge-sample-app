@@ -5,7 +5,7 @@ var React = require("react");
 var Router = require("react-router");
 var Routes = Router.Routes;
 var Route = Router.Route;
-var NotFound = Router.NotFound;
+var NotFoundRoute = Router.NotFoundRoute;
 
 // Handlers
 var App = require('./components/app');
@@ -18,13 +18,13 @@ var TakeSurveyCtrl = require('./components/take_survey_ctrl');
 
 var appRouter = (
   <Routes location="history">
-    <Route title="SurveyBuilder" handler={App}>
+    <Route path="/" handler={App}>
       <Route name="list" path="/" handler={ListSurveys} />
-      <Route title="Add Survey to SurveyBuilder" name="add" path="/add_survey" handler={AddSurvey} />
-      <Route name="edit" path="/surveys/:surveyId/edit" handler={EditSurvey} />
+      <Route name="add" path="/add_survey" handler={AddSurvey} />
       <Route name="take" path="/surveys/:surveyId" handler={TakeSurveyCtrl} />
-      <NotFound title="Page Not Found" handler={NotFoundHandler}/>
+      <Route name="edit" path="/surveys/:surveyId/edit" handler={EditSurvey} />
     </Route>
+    <NotFoundRoute handler={NotFoundHandler}/>
   </Routes>
 );
 

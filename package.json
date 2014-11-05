@@ -34,8 +34,8 @@
     "lodash-node": "^2.4.1",
     "merge": "^1.1.3",
     "node-jsx": "^0.11.0",
-    "react": "^0.11.1",
-    "react-router": "git://github.com/karlmikko/react-router.git#server-render",
+    "react": "^0.12.0",
+    "react-router": "0.10.2",
     "reactify": "^0.14.0",
     "supertest": "^0.13.0"
   },
