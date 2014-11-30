@@ -24,7 +24,6 @@ var AnswerMultipleChoiceQuestion = React.createClass({
   renderChoices: function() {
     return this.props.choices.map(function(choice, i) {
       return <AnswerRadioInput
-        id={"choice-" + i}
         key={"choice-" + i}
         name={this.state.id}
         label={choice}
@@ -36,7 +35,7 @@ var AnswerMultipleChoiceQuestion = React.createClass({
   render: function() {
     return (
       <div className="form-group">
-        <label className="survey-item-label" htmlFor={this.state.id}>{this.props.label}</label>
+        <label className="survey-item-label" htmlFor={this  .state.id}>{this.props.label}</label>
         <div className="survey-item-content">
             {this.renderChoices()}
         </div>
