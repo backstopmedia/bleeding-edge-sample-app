@@ -5,10 +5,10 @@ var TestUtils = React.addons.TestUtils;
 
 var SetIntervalSharedExamples = function(attributes){
 
-  var componentClass;
+  var ComponentClass;
 
   beforeEach(function(){
-    componentClass = attributes.componentClass;
+    ComponentClass = attributes.ComponentClass;
   });
 
   describe("SetIntervalSharedExamples", function(){
@@ -18,7 +18,7 @@ var SetIntervalSharedExamples = function(attributes){
 
       beforeEach(function(){
         spyOn(window, "setInterval");
-        subject = TestUtils.renderIntoDocument(<componentClass />);
+        subject = TestUtils.renderIntoDocument(<ComponentClass />);
         fakeFunction = function(){};
       });
 
@@ -49,7 +49,7 @@ var SetIntervalSharedExamples = function(attributes){
           }
         });
         spyOn(window, "clearInterval");
-        subject = TestUtils.renderIntoDocument(<componentClass />);
+        subject = TestUtils.renderIntoDocument(<ComponentClass />);
 
         subject.setInterval(fakeFunction, 100);
       });

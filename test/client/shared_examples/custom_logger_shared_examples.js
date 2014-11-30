@@ -6,21 +6,21 @@ var jasmineReact = require("jasmine-react-helpers");
 
 var CustomLoggerSharedExamples = function(attributes){
 
-  var componentClass;
+  var ComponentClass;
 
   beforeEach(function(){
-    componentClass = attributes.componentClass;
+    ComponentClass = attributes.ComponentClass;
   });
 
   describe("componentWillMount", function(){
     it("should call 'log' with 'component will mount...'", function(){
-      var logSpy = jasmineReact.spyOnClass(componentClass, "log");
+      var logSpy = jasmineReact.spyOnClass(ComponentClass, "log");
 
       // render the component.  React will implicity call the componentWillMount
       //  callback (in the component and any of it's mixins).
       //  Note how we're not invoking the function directly because we are letting
       //  React handle that behavior.
-      var subject = TestUtils.renderIntoDocument(<componentClass />);
+      var subject = TestUtils.renderIntoDocument(<ComponentClass />);
 
       expect(logSpy).toHaveBeenCalledWith("component will mount...")
     });
@@ -30,7 +30,7 @@ var CustomLoggerSharedExamples = function(attributes){
     it("should call console.log with 'DEBUG: ' and then the passed in message", function(){
       spyOn(console, "log");
 
-      var subject = TestUtils.renderIntoDocument(<componentClass />);
+      var subject = TestUtils.renderIntoDocument(<ComponentClass />);
 
       subject.log("calling log directly...");
 
