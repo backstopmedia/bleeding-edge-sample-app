@@ -1,25 +1,26 @@
 /** @jsx React.DOM */
 var React = require("react");
+var PropsMethodMixin = require("../../../mixins/PropsMethodMixin");
 var uniqueId = require('lodash-node/modern/utilities/uniqueId');
 
 var AnswerRadioInput = React.createClass({
+  mixins: [PropsMethodMixin],
   propTypes: {
     id: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     label: React.PropTypes.string.isRequired,
     value: React.PropTypes.string.isRequired,
-    checked: React.PropTypes.bool,
-    onChanged: React.PropTypes.func.isRequired
+    checked: React.PropTypes.bool
   },
   getDefaultProps: function () {
     return {
+      id: uniqueId('radio-'),
       checked: false
     };
   },
   getInitialState: function () {
     return {
-      checked: !!this.props.checked,
-      id: this.props.id ? this.props.id : uniqueId('radio-')
+      checked: !!this.props.checked
     };
   },
   componentWillReceiveProps: function (nextProps) {
@@ -33,16 +34,17 @@ var AnswerRadioInput = React.createClass({
     var checked = e.target.checked;
     this.setState({checked: checked});
     if(checked) {
-      this.props.onChanged(this.props.value);
+      this.callMethodOnProps('onChanged', this.props.value);
     }
   },
   render: function () {
     return (
       <div className="radio">
-        <label htmlFor={this.state.id}>
+        <label>
           <input type="radio"
             name={this.props.name}
-            id={this.state.id}
+            id={this.props.id}
+            value={this.props.value}
             checked={this.state.checked}
             onChange={this.handleChanged} />
           {this.props.label}

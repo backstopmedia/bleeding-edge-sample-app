@@ -43,7 +43,7 @@ var App = React.createClass({
       <div className='app'>
         <MainHeader/>
         <div className='main-content container'>
-          <this.props.activeRouteHandler />
+          {<this.props.activeRouteHandler />}
         </div>
       </div>
     );

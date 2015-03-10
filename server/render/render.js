@@ -18,9 +18,9 @@ require('node-jsx').install({harmony: true});
 
 var fs = require("fs");
 
-// var Router = require("react-router");
+var Router = require("react-router");
 
-// var app_router = require("../../client/app/app_router");
+var app_router = require("../../client/app/app_router");
 var router = require('express').Router({caseSensitive: true, strict: true});
 
 //only read on startup
@@ -32,25 +32,22 @@ router.use(function (req, res, next) {
   if (req.originalUrl == "/favicon.icon") {
     return next();
   }
-    var html = template.replace(/\{\{body\}\}/, "");
-    html = html.replace(/\{\{title\}\}/, "Survey Builder");
-    res.status(200).send(html);
 
-  // Router.renderRoutesToString(app_router, req.originalUrl).then( function (data) {
-  //   var html = template.replace(/\{\{body\}\}/, data.html);
-  //   html = html.replace(/\{\{title\}\}/, data.title);
-  //   res.status(data.httpStatus).send(html);
+  Router.renderRoutesToString(app_router, req.originalUrl).then( function (data) {
+    var html = template.replace(/\{\{body\}\}/, data.html);
+    html = html.replace(/\{\{title\}\}/, data.title);
+    res.status(data.httpStatus).send(html);
 
-  // }, function (err) {
-  //   if (err.httpStatus == 302 && err.location) {
-  //     return res.redirect(err.location);
-  //   }
-  //   if (err.httpStatus == 404) {
-  //     return next();
-  //   }
+  }, function (err) {
+    if (err.httpStatus == 302 && err.location) {
+      return res.redirect(err.location);
+    }
+    if (err.httpStatus == 404) {
+      return next();
+    }
 
-  //   next(err);
-  // });
+    next(err);
+  });
 });
 
 module.exports = router;
