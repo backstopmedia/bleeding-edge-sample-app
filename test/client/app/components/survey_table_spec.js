@@ -33,7 +33,7 @@ var data = [{
 }];
 
 describe("components/survey_table", function () {
-  var surbject;
+  var subject;
 
   beforeEach(function () {
     subject = TestUtils.renderIntoDocument(
